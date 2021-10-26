@@ -25,10 +25,29 @@
   <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
   
   <link rel="stylesheet" href="/design/article.css">
+<link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="icons/android-chrome-512x512.png"
+  />
 
     <title>{{posts.title}}</title>
 </head>
 <body>
+  <div id="coverScreen"  class="LockOn">
+  </div>
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=637816620536448&autoLogAppEvents=1" nonce="eUA3eiOb"></script>
    </script>
@@ -98,11 +117,21 @@
             <div class="icon-wrapper">
               <i class="fab fa-linkedin-in icon-style"></i>
             </div>
+            <div id="date"><span class="time"> <span class="tm">
+              <i class="fa fa-calendar-o icon" aria-hidden="true">
+                </i> {{posts.date.toLocaleDateString()}}</span>
+                <span class="tm">
+                  <i class="fa fa-calendar-o icon" aria-hidden="true">
+                    </i> {{posts.date.toLocaleTimeString()}}</span>  
+                <span class="tm"><i class="fa fa-clock-o icon" 
+                  aria-hidden="true"></i><span id="readTime">
+                    </span> min read</span></span> </div>
           </div>
+    
         </div>
 
       </div>
-      <p id="date"><span class="time"><i class="fa fa-calendar-o icon" aria-hidden="true"></i>  {{posts.date.toLocaleDateString()}} <i class="fa fa-clock-o icon" aria-hidden="true"></i>   {{posts.date.toLocaleTimeString()}} 6 min read</span> </p>
+      
 
       <p id="content">{{posts.content}}</p>
       <!-- ShareThis BEGIN -->
@@ -114,28 +143,8 @@
    
   </div>
 
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6162f905258759da"></script>
-
-<script>
-    
-const html = document.querySelector('#content');
-const tmp = html.textContent;
-console.log(tmp);
-html.innerHTML = tmp;
-document.querySelectorAll( 'oembed[url]' ).forEach( element => {
-        // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
-        // to discover the media.
-        const anchor = document.createElement( 'a' );
-
-        anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
-        anchor.className = 'embedly-card';
-
-        element.appendChild( anchor );
-    } );
-
-</script>
 
 <script src="/js/share-buttons.js"></script>
+<script src="/js/article.js"></script>
 </body>
 </html>
