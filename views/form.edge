@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <title>Create new article</title>
+</head>
+<body>
+    <h1>Your content</h1>
+
+
+    <button>Save</button>
+    <div class="container-form">
+     <form action="/new/store" method="POST" enctype="multipart/form-data">
+        <div class="title-form">
+            <label>Write title for new article</label>
+            <input type="text" name="title">
+        </div>
+            
+        <div class="author">
+            <label>Author name</label>
+            <input type="text" name="author">
+        </div>
+        <div class="description">
+            <label>Add description</label>
+            <input type="text" name="description">
+        </div>
+        <div class="content">
+            <label>Write content</label>
+            <textarea id="editor1" name="content" cols="30" rows="10" placeholder="Content..."></textarea>
+        </div>
+        <div class="image-form">
+            <input type="file" name="image">
+        </div>
+        <button>Create</button>
+    </form>
+    </div>
+    
+    
+
+<script>
+CKEDITOR.replace( 'editor1' );
+</script>
+
+    
+</body>
+</html>

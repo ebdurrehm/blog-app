@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Abdurrahim ahmadows page" />
+  <meta property="og:url" content="ahmadow.tk" />
+  <meta property="og:type" content="website" />
+  <meta name="title" property="og:title" content="{{posts.title}}" />
+  <meta name="image" property="og:image" content="{{posts.image}}" />
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta name="description" property="og:description" content="{{posts.description}}" />
+  <meta name="twitter:card" content="{{posts.description}}" />
+  <meta name="twitter:site" description="@ebdurrehm" />
+  <meta name="twitter:title" content="{{posts.title}}" />
+  <meta name="twitter:description" content="{{posts.description}}" />
+  <meta name="twitter:image:src" content="{{posts.image}}">
+  <meta name="twitter:domain" content="https://ahmadow.tk">
+  <meta property="fb:app_id" content="63781662053644" />
+  <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+  
+  <link rel="stylesheet" href="/design/article.css">
+
+    <title>{{posts.title}}</title>
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=637816620536448&autoLogAppEvents=1" nonce="eUA3eiOb"></script>
+   </script>
+   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>  
+  
+<div class="container">
+    <div class="article-container">
+      <h4 style="margin-bottom: 5px; color: blue;">INBOUND SUCCESS</h4>
+      <h1>{{posts.title}}</h1>
+
+      <p style="color:#75706f; font-style:italic;">{{posts.description}}</p>
+      <hr>
+
+      <div class="share">
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_inline_share_toolbox"></div>-->
+        
+        <div class="share-btn" data-url="https://ahmadow.tk/articles/6176d71ab2b897919660a106">
+          <a class="crc btn-vk" data-id="vk"><i class="icon-social fab fa-vk"></i></a>
+          <a class="crc btn-facebook" data-id="fb"><i class="icon-social fab fa-facebook-square"></i></a>
+          <a class="crc btn-twitter" data-id="tw"><i class="icon-social fab fa-twitter"></i></a>
+          <a class="crc btn-telegram" data-id="tg"><i class="icon-social fab fa-telegram"></i></a>
+          <a class="crc btn-evernote" data-id="ev"><i class="icon-social far fa-sticky-note"></i></a>
+          <a class="crc btn-linkedin" data-id="in"><i class="icon-social fab fa-linkedin"></i></a>
+          <a class="crc btn-skype" data-id="sk"><i class="icon-social fab fa-skype"></i></a>
+          <a class="crc btn-whatsapp" data-id="wa"><i class="icon-social fab fa-whatsapp"></i></a>
+          <a class="crc btn-hn" data-id="hn"><i class="icon-social fab fa-hacker-news"></i></a>
+          <a class="crc btn-mail" data-id="mail"><i class="icon-social fas fa-at"></i></a>
+          <a class="crc btn-print" data-id="print"><i class="icon-social fas fa-print"></i></a>
+      </div>
+
+        <!--
+      <div class="icon"> <div class="icon-wrapper">
+      <i class="fab fa-facebook-f icon-style"></i>
+      </div>
+       <div class="icon-wrapper">
+       <i class="fab fa-twitter icon-style"></i>
+      </div>
+       <div class="icon-wrapper">
+       <i class="fab fa-linkedin-in icon-style"></i>
+      </div>
+      </div>-->
+        <a id="next-article" href="">Next article</a>
+
+      </div>
+
+      <hr>
+    </div>
+
+    <div class="article-container">
+      <div class="article-image">
+        <img src="{{posts.image}}">
+      </div>
+      <div class="author">
+
+        <div class="author-image"></div>
+        <div class="author-info">
+          <h4>{{posts.author}}</h4>
+          <p>Evergreen Content Editor, 15+ Years of Publishing and Content Marketing Experience</p>
+          <div class="icon">
+            <div class="icon-wrapper">
+              <i class="fab fa-facebook-f icon-style"></i>
+            </div>
+            <div class="icon-wrapper">
+              <i class="fab fa-twitter icon-style"></i>
+            </div>
+            <div class="icon-wrapper">
+              <i class="fab fa-linkedin-in icon-style"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p id="date"><span class="time"><i class="fa fa-calendar-o icon" aria-hidden="true"></i>  {{posts.date.toLocaleDateString()}} <i class="fa fa-clock-o icon" aria-hidden="true"></i>   {{posts.date.toLocaleTimeString()}} 6 min read</span> </p>
+
+      <p id="content">{{posts.content}}</p>
+      <!-- ShareThis BEGIN -->
+      <div class="sharethis-inline-reaction-buttons"></div><!-- ShareThis END -->
+    
+
+      <div class="fb-comments" data-href="ahmadow.tk/articles/{{posts.id}}" data-width="600" data-numposts="5"></div>
+    </div>
+   
+  </div>
+
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6162f905258759da"></script>
+
+<script>
+    
+const html = document.querySelector('#content');
+const tmp = html.textContent;
+console.log(tmp);
+html.innerHTML = tmp;
+document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+        // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement( 'a' );
+
+        anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
+        anchor.className = 'embedly-card';
+
+        element.appendChild( anchor );
+    } );
+
+</script>
+
+<script src="/js/share-buttons.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Abdurrahim Ahmadov | Blog</title>
+  <!--Css-->
+  
+  <style>
+    :root {
+  --font-family: "Roboto", sans-serf;
+  --normal-font: 400;
+  --bold-font: 700;
+  --bolder-font: 900;
+  --bg-color: #fcfcfc;
+  --primary-color: #4756df;
+  --secondary-color: #ff7235;
+  --primary-shadow: #8b8eaf;
+  --secondary-shadow: #a17a69;
+  --bottom-margin: 0.5rem;
+  --bottom-margin-2: 1rem;
+  --line-height: 1.7rem;
+  --transition: 0.3s;
+  --bg-color-orange: rgb(255, 215, 155);
+}
+/* Variables end */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* CSS Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3.5rem;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  nav h1 {
+    color: var(--primary-color);
+  }
+  
+  nav a {
+    color: var(--primary-color);
+    transition: var(--transition);
+  }
+  nav a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 1.9rem;
+  }
+  
+  nav ul li {
+    font-weight: var(--bold-font);
+  }
+
+  .burger-menu {
+    color: var(--primary-color);
+    font-size: 2rem;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+  }
+    .container{
+  margin-top: 90px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+ 
+  
+}
+
+#section-id{
+  margin-bottom: 50px;
+}
+
+.card{
+  box-shadow: 0 3px 10px #8b8eaf;
+  background-color: #f3f0ff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  height: 300px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+
+.author{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.author img{
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+.author h5{
+  color: #7d7d7a;
+  font-style: italic;
+}
+.wrap{
+  display : flex;
+  flex-direction: row;
+  gap: 30px
+}
+.card-image img{
+  width: 200px;
+  height: 270px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+  
+}
+.icon{
+  font-size: 16px;
+  color: blue;
+}
+a{
+  text-decoration: none;
+}
+.time{
+  font-size: 10px;
+}
+.card-info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tag{
+  background-color:black;
+  color:  #42f554;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+footer {
+    background-color:var(--bg-color);
+    padding: 1.25rem;
+    text-align: center;
+    margin: 2rem 0 0;
+    position: relative;
+    bottom: 1%;
+  }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav>
+    <h1>Abdurrahim Ahmadov</h1>
+    <ul class="navigation">
+      <li><a href="/" class="nav-link">Portfilo</a></li>
+      <li><a href="/blog" class="nav-link">Blog</a></li>
+      @if(!auth)
+      <li><a href="user/login" class="nav-link">Login</a></li>
+      <li><a href="/user/register" class="nav-link">Register</a></li>
+      @else
+      <li><a href="/user/logout" class="nav-link">Log out</a></li>
+      @endif
+    </ul>
+    <button class="burger-menu" id="burger-menu">
+      <ion-icon class="bars" name="menu-outline"></ion-icon>
+    </button>
+</nav>
+  
+
+  <div class="container">
+    <h1 id="section-id">My recent articles</h1>
+    @each(post in posts)
+    <div class="card">
+      <div class="wrap">
+      <div class="card-image">
+        <img src="{{post.image}}">
+      </div>
+      <hr>
+      <div class="card-info">
+        <h2> <a class="link" href="/blog/{{post.slug}}">{{post.title}}</a> | <span class="time"><i class="fa fa-calendar-o icon" aria-hidden="true"></i>  {{post.date.toLocaleDateString()}} <i class="fa fa-clock-o icon" aria-hidden="true"></i>   {{post.date.toLocaleTimeString()}}</span></h2>
+        <div class="author">
+          
+          <img  src="/icons/abdurrahim.jpg">
+          <h5><i class="fa fa-user icon" aria-hidden="true"></i> {{post.author}} | <i class="fa fa-facebook-official" aria-hidden="true"></i> <i class="fa fa-github" aria-hidden="true"></i> <i class="fa fa-twitter" aria-hidden="true"></i></h5>
+        </div>
+  
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            nesciunt excepturi quos obcaecati incidunt voluptatem ipsam sunt ipsum,
+            autem deleniti cupiditate molestias quis unde quae totam porro dicta
+            iure animi inventore, veniam hic! Omnis nulla, delectus a voluptatibus</p>
+        <p><i class="fa fa-tags" aria-hidden="true"></i> <a class="tag" href="">Backend</a></p>
+      </div>
+      </div>
+    </div>
+    @endeach
+  </div>
+
+  
+   <!-- Footer section -->
+   <footer>
+    <div id="footer">
+      <h1>Copyright Abdurrahim</h1>
+      <p>Full-stack javascript web developer</p>
+      <p>All rights reserverd.</p>
+    </div>
+  </footer>
+
+
+  
+  <script src="https://use.fontawesome.com/e2bdda476d.js"></script>
+  
+</body>
+</html>
+
+
+
+  
+

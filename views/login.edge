@@ -1,0 +1,19 @@
+@layout('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="form">
+            <form action="/user/login" method="POST" enctype="multipart/form-data">
+                
+                <label>Enter your  email:
+                <input type="email" name="email">
+                </label><br>
+                <label>Enter your  password:
+                    <input type="password" name="password">
+                </label><br>
+                <button id="signup">Log In</button>
+
+            </form>
+        </div>
+    </div>
+    @endsection

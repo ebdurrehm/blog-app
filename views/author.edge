@@ -1,0 +1,17 @@
+@layout('layouts.app')
+
+@section('content')
+
+<div class="container">
+    @each(author in authors)
+    <div class="authors">
+        <h3>{{author.name}} {{author.surname}}</h3>
+        <p>{{author.bio}}</p>
+        <p>{{author.data.title}}</p>
+
+    </div>
+    @endeach
+    
+</div>
+
+@endsection

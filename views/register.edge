@@ -1,0 +1,30 @@
+@layout('layouts.app')
+@section('content')
+    <div class="container">
+        <div class="form">
+            <form action="/user/register/in" method="POST" enctype="multipart/form-data">
+                @if(errors.length > 0)
+                    <ul class="list-group">
+                        @each(error in errors)
+                        <li class="list-group-item text-danger">{{ error }}</li>
+                        @endeach
+                    </ul>
+                    @endif
+                <label>Enter your  firstname:
+                <input type="text" name="usrFirstName">
+                </label><br>
+                <label>Enter your  lastname:
+                <input type="text" name="usrLastName">
+                </label><br>
+                <label>Enter your  email:
+                <input type="email" name="usrEmail">
+                </label><br>
+                <label>Enter your  password:
+                    <input type="password" name="usrPassword">
+                </label><br>
+                <button id="signup">Sign Up</button>
+
+            </form>
+        </div>
+    </div>
+    @endsection
