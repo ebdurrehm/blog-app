@@ -29,6 +29,7 @@ const logoutCon = require('./controllers/logout');
 var userPageCon = require('./controllers/userPage');
 var getAuthorsCon = require('./controllers/getTeam');
 var postAuthorCon = require('./controllers/postAuthor');
+var getTagCon = require('./controllers/getTagCon');
 
 
 //reaad .env file
@@ -81,6 +82,7 @@ app.get('/',(req,res)=>{
 });
 app.get('/users/author', getAuthorsCon);
 app.post('/users/author/new', postAuthorCon);
+app.get('/blog/tags/:tag',getTagCon);
 
         
 

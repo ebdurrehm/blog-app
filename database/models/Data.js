@@ -8,6 +8,7 @@ const userSchema = new Schema({
     description: String,
     date: {type: Date, default: new Date()},
     slug: String,
+    tags: [String],
     image: String,
     
 });
