@@ -7,6 +7,7 @@ var upload = require('express-fileupload');//for to upload any file from form
 var expressSession = require('express-session');
 var mongoConnect = require('connect-mongo');//save session to database
 var connectFlash = require('connect-flash');// throw flash  error to frontend
+var subdomain = require('express-subdomain');
 
 
 const edge = require('edge.js');
@@ -30,6 +31,9 @@ var userPageCon = require('./controllers/userPage');
 var getAuthorsCon = require('./controllers/getTeam');
 var postAuthorCon = require('./controllers/postAuthor');
 var getTagCon = require('./controllers/getTagCon');
+var getAdminCon = require('./controllers/getAdminCon');
+var postAdminCon = require('./controllers/postAdminCon');
+
 
 
 //reaad .env file
@@ -64,12 +68,14 @@ app.use('*', (req, res, next)=>{
     edge.global('auth', req.session.userId);
     next();
 })
+app.admin = express.Router();
+app.use(subdomain('admin', app.admin));
 
 //routers
 app.get("/new",  createPostCon);
 app.get('/blog/:slug', getPostCon);
 app.get("/blog", indexPageCon);
-app.post("/new/store",  uploadDataCon);
+app.post('/admin/store',  uploadDataCon);
 app.get("/user/register", auth,  signUpCon);
 app.get("/user/login", auth, loginCon);
 app.post("/user/register/in",  uploadUserCon);
@@ -83,6 +89,12 @@ app.get('/',(req,res)=>{
 app.get('/users/author', getAuthorsCon);
 app.post('/users/author/new', postAuthorCon);
 app.get('/blog/tags/:tag',getTagCon);
+app.get('/admin', getAdminCon);
+app.post('/admin/:slug',postAdminCon);
+app.admin.get('/', (req, res) => {
+    res.send('Subdomain index')
+  });
+
 
         
 

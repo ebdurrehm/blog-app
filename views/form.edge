@@ -31,9 +31,9 @@
     <h1>Your content</h1>
 
 
-    <button>Save</button>
+    
     <div class="container-form">
-     <form action="/new/store" method="POST" enctype="multipart/form-data">
+     <form action="/admin/store" method="POST" enctype="multipart/form-data">
         <div class="title-form">
             <label>Write title for new article</label>
             <input type="text" name="title">
@@ -49,7 +49,11 @@
         </div>
         <div class="content">
             <label>Write content</label>
-            <textarea id="editor1" name="content" cols="30" rows="10" placeholder="Content..."></textarea>
+            <textarea type="text" id="editor1" name="content" cols="30" rows="10" placeholder="Content..."></textarea>
+        </div>
+        <div class="tags">
+            <label>Add tags, sperate each tag with comma</label>
+            <input type="text" name="tags">
         </div>
         <div class="image-form">
             <input type="file" name="image">

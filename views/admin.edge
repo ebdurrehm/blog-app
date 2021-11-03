@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+  <li><a href="/user/register" class="nav-link">Register</a></li>
+    @if(query===undefined)
+    
+    <form id="search" method="GET" enctype="multipart/form-data" onsubmit="search('search');">
+        <input type="text" name="search">
+        <button type="submit">Search</button>
+        </form>  
+    @else
+    
+    <div id="post" onload="change()">{{query}}
+    {{post.title}}
+    {{post.content}}</div>
+    
+
+
+    <form id="update" method="POST" action="/admin/{{post.slug}}" enctype="multipart/form-data">
+      <input type="text" name="content">
+      <button type="submit">update</button>
+      </form>  
+    @endif
+  <script>
+    function change(){
+
+      console.log("updated");
+    }
+   
+      function search(form){
+          var value = document.getElementsByName('search')[0].value;
+          var form = document.getElementById(form);
+          var value2 = document.getElementsByName('content')[0].value;
+          var action = "http://localhost:3000/admin?"+value+'&'+value2;
+        form.action = action;
+      }
+  </script>  
+</body>
+</html>

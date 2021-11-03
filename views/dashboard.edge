@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/design/dashboard.css">
+    <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
+<div class="sidebar">
+  <div id="logo">
+    <img src="https://images.unsplash.com/photo-1598198414976-ddb788ec80c1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNTY2OTM0MQ&ixlib=rb-1.2.1&q=85" 
+    alt="logo">
+    <p>Abdurrahim</p>
+  </div>
+
+  <ul id="nav">
+
+    <li><a id="createBtn" href="#" onclick="display('create')"><i class="fas fa-plus-square icon"></i><span>Create post</span></a></li>
+
+    <li><a id="updateBtn" href="#"><i class="fas fa-pen-square icon" onclick="display('modal');"></i><span>Update post</span></a></li>
+    <li><a href=""><i class="fas fa-minus-square icon"></i> <span>Delete post</span></a></li>
+    <li><a href="#"><i class="fas fa-search icon"></i> <span>Search post</span></a></li>
+    <li><a href="#"><i class="fas fa-user-plus icon"></i> <span>Create user</span></a></li>
+
+    <li><a href="#"><i class="fas fa-user-edit icon"></i><span>Update user</span></a></li>
+    <li><a href="#"><i class="fas fa-user-minus icon"></i><span>Delete user</span></a></li>
+
+  </ul>
+  
+</div>
+<div id="modal" class="modal" style="display: none;">
+  <div class="modal-content"><span  class="x"  onclick="hide('modal')">X</span>
+    <li><a href="/user/register" class="nav-link">Register</a></li>
+    @if(query===undefined)
+    <form id="search" method="GET" enctype="multipart/form-data" onsubmit="search('search');">
+      <input type="text" name="search">
+      <button type="submit">Search</button>
+      </form>  
+     
+    @else
+    
+    <div id="post" onload="change()">{{query}}
+    {{post.title}}
+    {{post.content}}</div>
+
+
+    <form id="update" method="POST" action="/admin/{{post.slug}}"  enctype="multipart/form-data">
+      <input type="text" name="content">
+      <button type="submit">update</button>
+      </form>  
+    @endif
+  </div>
+</div>
+
+  <!--Create function -->  
+  <div id="create" class="modal">
+    <div class="modal-content">
+        <span class="x"  onclick="hide('create')">X</span>
+        
+    <h1>Your content</h1>
+
+    <div class="container-form">
+     <form id="f0"  method="POST" action="/admin/store" enctype="multipart/form-data">
+        <div class="title-form">
+            <label>Write title for new article</label>
+            <input type="text" name="title">
+        </div>
+            
+        <div class="author">
+            <label>Author name</label>
+            <input type="text" name="author">
+        </div>
+        <div class="description">
+            <label>Add description</label>
+            <input type="text" name="description">
+        </div>
+        <div class="content">
+            <label>Write content</label>
+            <textarea id="editor1" name="content" cols="30" rows="10" placeholder="Content..." ></textarea>
+        </div>
+        <div class="tags">
+            <label>Add tags, sperate each tag with comma</label>
+            <input type="text" name="tags">
+        </div>
+        <div class="image-form">
+            <input type="file" name="image">
+        </div>
+        <button type="submit">Create</button>
+    </form>
+    </div>
+
+    </div>
+</div>
+<div id="navbar">
+  
+
+  <div id="search"><input type="text" placeholder="Search post..."><i class="fas fa-search"></i></div>
+  <ul id="navbar-ul">
+
+    <li><a href="#">
+        <div class="box">
+          <div class="text">J. Gomes added new comment</div>
+          <div class="text">J. Gomes added new comment</div>
+          <div class="text">J. Gomes added new comment</div>
+          <div class="text">J. Gomes added new comment</div>
+        </div><span class="notification">12</span><i class="fas fa-envelope notf"></i>
+      </a></li>
+    <li><a href="#"><span class="notification">13</span><i class="fas fa-bell notf"></i></i><span></span></a></li>
+    <li><a href="#"><i class="fas fa-user-shield notf"></i><span></span></a></li>
+  </ul>
+</div>
+<div id="dashboard">
+
+  <div id="chart1"></div>
+  <div id="chart1"></div>
+</div>
+
+
+<div class="modal" id="success">
+  <div class="modal-content" id="scs-content">
+    <span class="x" onclick="hide('success')">X</span>
+    <img src="/images/scs.gif" alt="success">
+    <p>The new Post successfully created!</p>
+    <p><a href="" id="new">New post</a></p>
+  </div>
+</div>
+
+<div class="modal" id="failure">
+  <div class="modal-content" id="fail-content">
+    <span class="x" onclick="hide('failure')"></span>
+    <p>Something get wrong</p>
+    <p  id="fail-msg"></p>
+  </div>
+</div>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

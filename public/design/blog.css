@@ -135,7 +135,7 @@ justify-content: center;
 flex-direction: column;
 align-items: center;
 width: 700px;
-height: 300px;
+height: 350px;
 padding: 20px;
 margin-bottom: 40px;
 }
@@ -162,8 +162,8 @@ flex-direction: row;
 gap: 30px
 }
 .card-image img{
-width: 200px;
-height: 270px;
+width: 210px;
+height: 330px;
 object-fit: cover;
 object-position: center;
 border-radius: 5px;
@@ -177,14 +177,22 @@ a{
 text-decoration: none;
 }
 .time{
-font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+     font-size: 17px;
+     margin-top: 5px;
 }
 .card-info{
 display: flex;
 flex-direction: column;
 gap: 20px;
 }
-
+#tag{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
 .tag{
 background-color:black;
 color:  #42f554;
@@ -199,4 +207,7 @@ text-align: center;
 margin: 2rem 0 0;
 position: relative;
 bottom: 1%;
+}
+hr{
+    height: 330px;
 }

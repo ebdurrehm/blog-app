@@ -15,7 +15,7 @@ const compareUser = (req,res)=>{
 //if two passwords match, then:
                 if(correct){
                     req.session.userId = user._id; //assaign this user's id to session id and session belong to this user until destroyed
-                    res.redirect('/');
+                    res.redirect('/admin');
                 }
                 else{
             //if pasords don't match return login page
