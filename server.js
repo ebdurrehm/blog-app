@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var dotenv = require("dotenv");//for to read .env file
 var mongoose = require("mongoose");// for to connect database
-var {engine} = require("express-edge");//template engine
+var { engine } = require("express-edge");//template engine
 var upload = require('express-fileupload');//for to upload any file from form
 var expressSession = require('express-session');
 var mongoConnect = require('connect-mongo');//save session to database
@@ -19,7 +19,6 @@ var auth = require('./middleware/auth');
 
 //controllers
 var indexPageCon = require("./controllers/indexPage");//get all posts from database
-var createPostCon = require("./controllers/createPost");//create new post
 var getPostCon = require("./controllers/getPost");//get post
 var uploadDataCon = require("./controllers/uploadData"); //save the new post to database
 var signUpCon = require("./controllers/signUp");
@@ -33,19 +32,19 @@ var postAuthorCon = require('./controllers/postAuthor');
 var getTagCon = require('./controllers/getTagCon');
 var getAdminCon = require('./controllers/getAdminCon');
 var postAdminCon = require('./controllers/postAdminCon');
-
-
+var searchCon = require('./controllers/search');
+var deleteCon = require('./controllers/delete');
 
 //reaad .env file
-dotenv.config({path:'secret.env'});
+dotenv.config({ path: 'secret.env' });
 //connect to database
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=>{
-    console.log("you are connected");
-})
-.catch(err=>{
-    console.error("something went wrong", err);
-});
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("you are connected");
+    })
+    .catch(err => {
+        console.error("something went wrong", err);
+    });
 
 
 
@@ -64,7 +63,7 @@ app.use(expressSession({
         mongoUrl: process.env.MONGO_URI
     })
 }));
-app.use('*', (req, res, next)=>{
+app.use('*', (req, res, next) => {
     edge.global('auth', req.session.userId);
     next();
 })
@@ -72,33 +71,32 @@ app.admin = express.Router();
 app.use(subdomain('admin', app.admin));
 
 //routers
-app.get("/new",  createPostCon);
+
 app.get('/blog/:slug', getPostCon);
 app.get("/blog", indexPageCon);
-app.post('/admin/store',  uploadDataCon);
-app.get("/user/register", auth,  signUpCon);
+app.post('/admin/store', uploadDataCon);
+app.get("/user/register", auth, signUpCon);
 app.get("/user/login", auth, loginCon);
-app.post("/user/register/in",  uploadUserCon);
-app.post('/user/login',  compareLoginCon);
-app.get('/user/logout',logoutCon);
-app.get('/users/:id',userPageCon);
-app.get('/',(req,res)=>{
+app.post("/user/register/in", uploadUserCon);
+app.post('/user/login', compareLoginCon);
+app.get('/user/logout', logoutCon);
+app.get('/users/:id', userPageCon);
+app.get('/', (req, res) => {
     res.render('portfolio');
-    
+
 });
 app.get('/users/author', getAuthorsCon);
 app.post('/users/author/new', postAuthorCon);
-app.get('/blog/tags/:tag',getTagCon);
+app.get('/blog/tags/:tag', getTagCon);
 app.get('/admin', getAdminCon);
-app.post('/admin/:slug',postAdminCon);
-app.admin.get('/', (req, res) => {
-    res.send('Subdomain index')
-  });
+app.post('/admin/:slug', postAdminCon);
+app.get('/admin/search', searchCon);
+app.get('/admin/delete/:id', deleteCon);
 
 
-        
 
 
-app.listen(3000, ()=>{ 
+
+app.listen(3000, () => {
     console.log("app listening")
 });

@@ -342,11 +342,96 @@ a .notification {
     margin-right: 0%;
     color: white;
     font-weight: 600;
-    
-    
-    
   }
 
+  #response{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 579px;
+    /* padding-right: 0
+px
+; */
+    margin-right: -150px;
+
+  }
+  .responsePost{
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 11px;
+    box-shadow: -2px 3px 7px 1px;
+}
+
+.up-del{
+  display: none;
+}
+.responsePost:hover>.postImage{
+  filter: blur(3px);
+  z-index: 4000;
+  margin-left: -60%;
+}
+.responsePost:hover>.postInfo{
+  filter: blur(3px);
+  margin-left: -1%;
+  z-index: 4000;
+}
+.responsePost:hover>.up-del{
+display: flex;
+gap: 10px;
+z-index: 9999;
+margin-left: 45%;
+
+}
+
+.up-del a{
+  text-decoration: none;
+  font-size: 20px;
+  color: #061430;
+}
+.up-del a:hover>.del-a{
+  color: red;
+}
+.up-del a:hover>.upd-a{
+  color:rgb(28, 177, 28);
+}
+
+.up-del i{
+  text-decoration: none;
+  font-size: 20px;
+  color: #061430;
+}
+
+
+  
+  .postImage{
+    width: 102px;
+    height: auto;
+    border: 1px solid darkturquoise;
+}
+  
+.postImage img{
+  width: 101px;
+  height: 184px;
+}
+.postInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.text{
+  font-size: 12px;
+
+}
   
 
   @keyframes failure {
