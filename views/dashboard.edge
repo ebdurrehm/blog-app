@@ -26,7 +26,7 @@
       <li onclick="display('create')"><a id="createBtn" href="#"><i class="fas fa-plus-square icon"></i><span>Create
             post</span></a></li>
 
-      <li onclick="display('update')"><a id="updateBtn" href="#"><i class="fas fa-pen-square icon"></i><span>Update
+      <li onclick="display('searchModal')"><a id="updateBtn" href="#"><i class="fas fa-pen-square icon"></i><span>Update
             post</span></a></li>
       <li><a href=""><i class="fas fa-minus-square icon"></i> <span>Delete post</span></a></li>
       <li><a href="#"><i class="fas fa-search icon"></i> <span>Search post</span></a></li>
@@ -40,9 +40,9 @@
   </div>
 
   <!-- search post -->
-  <div class="modal" id="update">
+  <div class="modal" id="searchModal">
     <div class="modal-content" id="updt-content">
-      <span class="x" onclick="hide('update')">X</span>
+      <span class="x" onclick="hide('searchModal')">X</span>
       <div id="response">
 
       </div>
@@ -59,7 +59,7 @@
   </div>
   </div>
 
-  <!--Create function -->
+  <!--Create post -->
   <div id="create" class="modal">
     <div class="modal-content">
       <span class="x" onclick="hide('create')">X</span>
@@ -98,9 +98,46 @@
 
     </div>
   </div>
+
+
+  <!--Update post -->
+  <div id="updatePost" class="modal">
+    <div class="modal-content">
+      <span class="x" onclick="hide('updatePost')">X</span>
+
+      <h1>Your content</h1>
+
+      <div class="container-form">
+        <form id="updateForm" onsubmit="updatePost(event, this)" enctype="multipart/form-data">
+          <div class="title-form">
+            <label>Write title for new article</label>
+            <input type="text" name="title">
+          </div>
+
+          <div class="author">
+            <label>Author name</label>
+            <input type="text" name="author">
+          </div>
+          <div class="description">
+            <label>Add description</label>
+            <input type="text" name="description">
+          </div>
+          <div class="content">
+            <label>Write content</label>
+            <textarea id="editor1" name="content" cols="30" rows="10" placeholder="Content..."></textarea>
+          </div>
+          <div class="tags">
+            <label>Add tags, sperate each tag with comma</label>
+            <input type="text" name="tags">
+          </div>
+          <button type="submit">Update</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
   <div id="navbar">
-
-
     <div id="search"><input type="text" placeholder="Search post..."><i class="fas fa-search"></i></div>
     <ul id="navbar-ul">
 
@@ -122,7 +159,7 @@
     <div id="chart1"></div>
   </div>
 
-
+  <!-- success message-->
   <div class="modal" id="success">
     <div class="modal-content" id="scs-content">
       <span class="x" onclick="hide('success')">X</span>
@@ -131,7 +168,7 @@
       <p><a href="" id="new">New post</a></p>
     </div>
   </div>
-
+  <!-- error message -->
   <div class="modal" id="failure">
     <div class="modal-content" id="fail-content">
       <span class="x" onclick="hide('failure')"></span>

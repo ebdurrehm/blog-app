@@ -34,7 +34,7 @@ var getAdminCon = require('./controllers/getAdminCon');
 var postAdminCon = require('./controllers/postAdminCon');
 var searchCon = require('./controllers/search');
 var deleteCon = require('./controllers/delete');
-
+var updateCon = require('./controllers/update');
 //reaad .env file
 dotenv.config({ path: 'secret.env' });
 //connect to database
@@ -92,6 +92,7 @@ app.get('/admin', getAdminCon);
 app.post('/admin/:slug', postAdminCon);
 app.get('/admin/search', searchCon);
 app.get('/admin/delete/:id', deleteCon);
+app.post('/admin/update/:id', updateCon);
 
 
 

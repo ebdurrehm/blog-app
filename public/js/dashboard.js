@@ -1,4 +1,5 @@
 
+
 //editor for creating post
 CKEDITOR.replace('editor1');
 
@@ -18,15 +19,6 @@ function hide(modalid) {
   var modal = document.getElementById(modalid);
   modal.style.display = "none";
 }
-
-
-/*if(window.location.href !=='http://localhost:3000/admin'){
- console.log(window.location.href==='http://localhost:3000/admin');
-  var body = document.querySelector("body");
-  var modal = document.getElementById("modal");
-  modal.style.display = "block";
- 
-}*/
 
 
 function request(elem, method, event) {
@@ -76,7 +68,7 @@ function request(elem, method, event) {
         for (var i = 0; i < response.data.length; i++) {
           //create post's html and pass data that comes from database
           var html = '<div class="up-del">' +
-            '<a class="upd-a" href="#"><i class="fas fa-pen-square icon upd-a"></i> Update</a>' +
+            '<a class="upd-a" id="upd-a" href="/admin/update/' + response.data[i]._id + '" onclick="displayUpdateEditor(event)"><i class="fas fa-pen-square icon upd-a"></i> Update</a>' +
             '<a id="del-a" class="del-a" href="/admin/delete/' + response.data[i]._id + '" onclick="deletePost(event,this)"><i class="fas fa-minus-square icon del-a"></i> Delete</a></div>' + '<div class="postImage">'
             + '<img class="imgPost" src="' + response.data[i].image +
             '"></div><div class="postInfo"><h4 class="postTitle">'
@@ -118,6 +110,7 @@ function deletePost(event, element) {
       // which contains the post information
       var postDiv = element.closest("#response>div");
       //and delete this element because this post was deleted on the database
+      console.log(element.id)
       postDiv.remove();
       console.log("the response>" + response)
       var modal = document.getElementById("success");
@@ -139,6 +132,44 @@ function deletePost(event, element) {
   )
 
 }
+
+//display editing modal
+function displayUpdateEditor(event) {
+  event.preventDefault();
+  document.getElementById('updatePost').style.display = "block";
+
+}
+//update post
+function updatePost(event, element) {
+
+  event.preventDefault();
+  var form = document.getElementById('updateForm');
+  document.getElementById('updatePost').style.display = "none";
+  //update textarea with editor text
+  CKEDITOR.instances.editor1.updateElement();
+  const formdata = new FormData(form);
+  var url = document.getElementById('upd-a').href;
+  var modal = document.getElementById("success");
+  var scsMsg = document.getElementById('scsMsg');
+
+  axios.post(url, formdata)
+    .then((response) => {
+      modal.style.display = "block";
+      console.log(response.data);
+      scsMsg.innerText = response.data;
+      document.getElementById('response').innerHTML = "";
+      request('searchPost', 'get', event)
+    })
+    .catch((error) => {
+      document.getElementById("failure").style.display = "block";
+      document.getElementById('fail-msg').innerText = error;
+      setInterval(() => {
+        document.getElementById('failure').style.display = "none";
+      }, 4000);
+    })
+}
+
+
 
 
 
