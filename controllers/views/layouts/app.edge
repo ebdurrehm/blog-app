@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Css-->
+    <link rel="stylesheet" href="/design/portfolio.css"/>
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/icons/android-chrome-512x512.png"
+  />
+
+    <!-- Animate CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--bootstrap-->
+    
+    
+    <title>Abdurrahim | Web developer</title>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav>
+        <h1>Abdurrahim Ahmadov</h1>
+        <ul class="navigation">
+          <li><a href="/" class="nav-link">Portfilo</a></li>
+          <li><a href="/blog" class="nav-link">Blog</a></li>
+          @if(!auth)
+          <li><a href="user/login" class="nav-link">Login</a></li>
+        
+          @else
+          <li><a href="/user/logout" class="nav-link">Log out</a></li>
+          @endif
+        </ul>
+        <button class="burger-menu" id="burger-menu">
+          <ion-icon class="bars" name="menu-outline"></ion-icon>
+        </button>
+  </nav>
+
+  @!section('content')
+
+
+   <!-- Footer section -->
+   <footer>
+    <div id="footer">
+      <h1>Copyright Abdurrahim</h1>
+      <p>Full-stack javascript web developer</p>
+      <p>All rights reserverd.</p>
+    </div>
+  </footer>
+
+
+  <!--bootstrap script-->
+ 
+  <!-- Website scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
+
+  <!-- Ion icons scripts -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <!--fontawesome icon-->
+  <script src="https://use.fontawesome.com/e2bdda476d.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,448 @@
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: gray;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: red;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#container {
+  height: 100vh;
+}
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: #061430;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+}
+#nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 200px;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+#logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  position: absolute;
+  top: 0;
+}
+#logo p {
+  color: cyan;
+  font-style: italic;
+  font-size: 20px;
+}
+#logo img {
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  height: 60px;
+  border: 1px solid green;
+}
+
+#nav li a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  gap: 15px;
+  color: white;
+  font-weight: 700;
+  align-items: center;
+}
+#nav li {
+  text-align: center;
+  margin-right: 10px;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: 2px 2px 6px -3px rgba(0, 0, 0, 1) inset;
+  -webkit-box-shadow: 2px 2px 6px -3px rgba(0, 0, 0, 1) inset;
+  -moz-box-shadow: 2px 2px 6px -3px rgba(0, 0, 0, 1) inset;
+}
+ul li:hover {
+  background-color: crimson;
+  color: white;
+}
+
+ul li:active {
+  background-color: #1900fc;
+  color: white;
+}
+.icon {
+  font-size: 20px;
+  color: cyan;
+}
+html {
+  background-color: white;
+}
+#dashboard {
+  margin-top: 70px;
+  display: flex;
+
+  margin-left: 270px;
+}
+
+#chart1 {
+  background-image: url(https://www.microsoft.com/en-us/microsoft-365/blog/uploads/sites/2/2012/06/Excel-charts-11.png);
+  object-fit: contain;
+  width: 337px;
+  height: 200px;
+  z-index: 1;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flext-start;
+  position: fixed;
+  top: 0;
+  margin-left: 212px;
+  width: 100%;
+  z-index: 2;
+  background: rgb(220, 20, 60);
+  background: linear-gradient(
+    90deg,
+    rgba(220, 20, 60, 1) 23%,
+    rgba(255, 81, 0, 1) 49%
+  );
+}
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin-left: 690px;
+}
+#navbar ul li a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+#navbar input {
+  border-radius: 30px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  width: 200px;
+}
+#navbar input::placeholder {
+  color: lightgray;
+}
+#search {
+  background-color: white;
+  border-radius: 20px;
+  padding-right: 8px;
+  padding-top: 3px;
+  margin-left: 50px;
+}
+#search i {
+  color: gray;
+}
+
+a .notification {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  top: -13px;
+  left: 19px;
+  text-align: center;
+  font-size: 12px;
+  padding: 2px;
+}
+.notification:empty {
+  display: none;
+}
+.notf {
+  font-size: 25px;
+}
+.box {
+  overflow-y: scroll;
+  display: none;
+  -webkit-transition: display 2s ease-out;
+  -moz-transition: display 2s ease-out;
+  -o-transition: display 2s ease-out;
+  transition: display 2s ease-out;
+}
+.text {
+  padding: 10px;
+}
+.text:hover {
+  transition: 1s;
+  background-color: gray;
+  cursor: pointer;
+}
+#navbar a:hover > .box {
+  color: black;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 15px;
+  top: 20px;
+  width: 350px;
+  height: 100px;
+  left: -90px;
+  background-color: #f4f4f4;
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+  cursor: context-menu;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin-top: -30px;
+  margin-left: 290px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+  height: 80%;
+}
+.x {
+  color: gray;
+  float: right;
+}
+
+.x:hover{
+  cursor: pointer;
+  color: black;
+}
+
+#scs-wrp{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  
+}
+#scs-content{
+  margin-top: -30px;
+  margin-left: 479px;
+  width: 45%;
+  height: auto;
+  animation-name: box;
+  animation-duration: 1s;
+}
+
+@keyframes box {
+  from {
+    margin-top: -391px;
+   
+  }
+
+  to {
+    margin-top:-30px;
+   
+    
+  }
+}
+
+#scs-content img{
+  margin-left: 39%;
+  width: 147px;
+  height: 147px;
+  object-fit: contain;
+}
+#scs-content  p{
+  text-align: center;
+  font-size: 17px;
+  color: chartreuse;
+  font-weight: 600;
+}
+
+#lock{
+  display: block;
+  visibility: visible;
+  position: absolute;
+  z-index: 1006;
+  top: 0px;
+  left: 0px;
+  width: 60%;
+  background-color:transparent;
+  vertical-align:bottom;
+  padding-top: 20%; 
+  -ms-filter: alpha(opacity=100); 
+  filter: alpha(opacity=100);
+  opacity: 1; 
+  font-size:large;
+  color:blue;
+  font-style:italic;
+  font-weight:400;
+  background-image: url("../1480.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: -30px;
+  margin-left: 479px;
+  width: 50%;
+  height: auto;
+  }
+  #new{
+    font-size: 15px;
+    font-weight: 700;
+    color: red;
+  }
+
+  #fail-content{
+
+    background-color: red;
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+    animation-name: failure;
+    animation-duration: 2s;
+    margin-right: 0%;
+    color: white;
+    font-weight: 600;
+  }
+
+  #response{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 579px;
+    /* padding-right: 0
+px
+; */
+    margin-right: -150px;
+
+  }
+  .responsePost{
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 11px;
+    box-shadow: -2px 3px 7px 1px;
+}
+
+.up-del{
+  display: none;
+}
+.responsePost:hover>.postImage{
+  filter: blur(3px);
+  z-index: 4000;
+  margin-left: -60%;
+}
+.responsePost:hover>.postInfo{
+  filter: blur(3px);
+  margin-left: -1%;
+  z-index: 4000;
+}
+.responsePost:hover>.up-del{
+display: flex;
+gap: 10px;
+z-index: 9999;
+margin-left: 45%;
+
+}
+
+.up-del a{
+  text-decoration: none;
+  font-size: 20px;
+  color: #061430;
+}
+.up-del a:hover>.del-a{
+  color: red;
+}
+.up-del a:hover>.upd-a{
+  color:rgb(28, 177, 28);
+}
+
+.up-del i{
+  text-decoration: none;
+  font-size: 20px;
+  color: #061430;
+}
+
+
+  
+  .postImage{
+    width: 102px;
+    height: auto;
+    border: 1px solid darkturquoise;
+}
+  
+.postImage img{
+  width: 101px;
+  height: 184px;
+}
+.postInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.text{
+  font-size: 12px;
+
+}
+  
+
+  @keyframes failure {
+    from {
+   
+      margin-left: 0px;
+     
+    }
+  
+    to {
+      
+      margin-left: 300px;}
+   
+  }
