@@ -32,10 +32,7 @@ ul {
 list-style-type: none;
 }
 
-a {
-text-decoration: none;
-color: var(--primary-color);
-}
+a {text-decoration: none;color: var(--primary-color);}
 
 a:hover {
 color: var(--secondary-color);
@@ -76,7 +73,7 @@ font-size:large;
 color:blue;
 font-style:italic;
 font-weight:400;
-background-image: url("../1480.gif");
+background-image: url("../images/1480.gif");
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -210,4 +207,31 @@ bottom: 1%;
 }
 hr{
     height: 330px;
+}
+
+#pageBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    justify-content: center;
+}
+.btnStyle{
+    text-align: center;
+    width: 51px;
+    height: 41px;
+    padding: 5px;
+    background-color: cornsilk;
+    color: azure;
+    border: 1px solid rgb(185, 185, 185);
+    font-size: 26px;
+}
+
+.btnStyle:focus{
+    background-color: brown;
+}
+.btnStyle:active{
+    background-color: crimson;
+}
+.btnStyleMore{
+    display: none;
 }

@@ -12,6 +12,7 @@ const userSchema = new Schema({
     slug: String,
     tags: [String],
     image: String,
+    comment: [String]
     
 },opts);
 

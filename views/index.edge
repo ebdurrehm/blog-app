@@ -23,7 +23,7 @@
  sizes="512x512"
  href="icons/android-chrome-512x512.png"
 />
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>Abdurrahim Ahmadov | Blog</title>
   <!--Css-->
 </head>
@@ -81,6 +81,11 @@
     @endeach
   </div>
 
+  <div id="pagination">
+    <div class="pageBtn" id="pageBtn">
+     
+    </div>
+  </div>
   
    <!-- Footer section -->
    <footer>
@@ -94,12 +99,7 @@
 
   
   <script src="https://use.fontawesome.com/e2bdda476d.js"></script>
-  <script>
-    var elem = document.getElementById('coverScreen');
-    window.addEventListener('load', (event) =>{
-        elem.style="display:none;";})
-    
-        </script>
+ <script src="/js/blog.js"></script>
 </body>
 </html>
 
