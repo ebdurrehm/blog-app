@@ -6,7 +6,7 @@
 - [x] Create blog UI
 - [x] Create blog card UI
 - [x] Connect MongoDB database
-- [x] Create blog cluster
+- [ x ] Create blog cluster
 - [x] Create blog schema and model 
 - [x] Add authentication and autorization for admin
 - [x] Create preveliges for Admin
