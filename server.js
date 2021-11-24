@@ -57,7 +57,7 @@ app.use(express.json());
 app.use(engine);
 app.set('views', `${__dirname}/views`);
 app.use(expressSession({
-    secret: "secret",
+    secret: process.env.SECRET,
     resave: true, //force to save any session coockies
     saveUninitialized: true, //save all sessions to database
     store: mongoConnect.create({
