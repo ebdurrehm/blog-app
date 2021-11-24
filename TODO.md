@@ -2,7 +2,7 @@
 
 
 ### Tasks
-- [x] Create portfilo UI ~3d #type @name yyyy-mm-dd  
+- [✓] Create portfilo UI ~3d #type @name yyyy-mm-dd  
 - [x] Create blog UI
 - [x] Create blog card UI
 - [x] Connect MongoDB database
