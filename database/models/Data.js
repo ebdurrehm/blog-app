@@ -12,7 +12,13 @@ const userSchema = new Schema({
     slug: String,
     tags: [String],
     image: String,
-    comment: [String]
+    comment: [{
+      name: String,
+      email: String,
+      text: String,
+      createdAt: {type: Date, default: Date.now}
+
+    }]
     
 },opts);
 
