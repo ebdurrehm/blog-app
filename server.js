@@ -59,7 +59,7 @@ app.use(express.json());
 app.use(engine);
 app.set('views', `${__dirname}/views`);
 app.use(expressSession({
-    secret: "secret",
+    secret: process.env.SECRET,
     resave: true, //force to save any session coockies
     saveUninitialized: true, //save all sessions to database
     store: mongoConnect.create({
@@ -103,7 +103,8 @@ app.get('/comment/:id', getComment);
 
 
 
-
-app.listen(3000, () => {
-    console.log("app listening")
+var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+app.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
 });
