@@ -1,6 +1,6 @@
 const slugify = (string) => {
-    const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
-    const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
+    const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧşıə·/_,:;'
+    const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzhsie------'
     const p = new RegExp(a.split('').join('|'), 'g')
   return string.toString().toLowerCase()
       .replace(/\s+/g, '-') // Replace spaces with -

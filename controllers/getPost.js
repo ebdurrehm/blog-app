@@ -3,6 +3,7 @@ const User = require("../database/models/User");
 
 module.exports=  async (req,res)=>{
     const posts = await Data.findOne({"slug":req.params.slug});
-    const user = await User.find({});
-    res.render('article',{posts,user})};
+    res.render('article',{posts, comments: posts.comment.sort(function(a,b){
+        return b.createdAt-a.createdAt;
+      })})};
     

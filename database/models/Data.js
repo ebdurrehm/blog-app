@@ -16,6 +16,8 @@ const userSchema = new Schema({
       name: String,
       email: String,
       text: String,
+      like: Number,
+      dislike: Number,
       createdAt: {type: Date, default: Date.now}
 
     }]
