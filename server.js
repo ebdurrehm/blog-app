@@ -52,6 +52,16 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 
 //midlewares
+app.use((err, req, res, next) => {
+    const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+    res.status(statusCode);
+    res.json({
+      message: err.message,
+      stack: process.env.NODE_ENV === 'production' ? {} : error.stack,
+    });
+    next();
+  });
+;
 app.use(connectFlash());
 app.use(express.static('public'));
 app.use(upload());
@@ -59,7 +69,7 @@ app.use(express.json());
 app.use(engine);
 app.set('views', `${__dirname}/views`);
 app.use(expressSession({
-    secret: process.env.SECRET,
+    secret: "secret",
     resave: true, //force to save any session coockies
     saveUninitialized: true, //save all sessions to database
     store: mongoConnect.create({
@@ -99,12 +109,13 @@ app.get('/admin/delete/:id', deleteCon);
 app.post('/admin/update/:id', updateCon);
 app.post('/comment', postComment);
 app.get('/comment/:id', getComment);
+app.get('*',(req, res)=>{
+    res.statusCode(404).send('error 404 not found');
+})
 
 
 
 
-var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
-var server_host = process.env.YOUR_HOST || '0.0.0.0';
-app.listen(server_port, server_host, function() {
-    console.log('Listening on port %d', server_port);
+app.listen(3000, () => {
+    console.log("app listening")
 });

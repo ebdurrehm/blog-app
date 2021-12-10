@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:site_name" content="Abdurrahim ahmadows page" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:site_name" content="Abdurrahim ahmadows page" />
   <meta property="og:url" content="ahmadow.tk" />
   <meta property="og:type" content="website" />
   <meta name="title" property="og:title" content="{{posts.title}}" />
@@ -20,40 +20,30 @@
   <meta name="twitter:description" content="{{posts.description}}" />
   <meta name="twitter:image:src" content="{{posts.image}}">
   <meta name="twitter:domain" content="https://ahmadow.tk">
-  <meta property="fb:app_id" content="63781662053644" />
+ 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
   <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
-  
-  <link rel="stylesheet" href="/design/article.css">
-<link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="icons/favicon-32x32.png"
-    />
-    <link
-    rel="icon"
-    type="image/png"
-    sizes="512x512"
-    href="icons/android-chrome-512x512.png"
-  />
 
-    <title>{{posts.title}}</title>
+  <link rel="stylesheet" href="/design/article.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/android-chrome-512x512.png" />
+
+  <title>{{posts.title}}</title>
 </head>
+
 <body>
-  <div id="coverScreen"  class="LockOn">
+  <div id="coverScreen" class="LockOn">
   </div>
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=637816620536448&autoLogAppEvents=1" nonce="eUA3eiOb"></script>
-   </script>
-   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>  
-  
-<div class="container">
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=637816620536448&autoLogAppEvents=1"
+    nonce="eUA3eiOb"></script>
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <div class="container">
     <div class="article-container">
       <h4 style="margin-bottom: 5px; color: blue;">INBOUND SUCCESS</h4>
       <h1>{{posts.title}}</h1>
@@ -64,7 +54,7 @@
       <div class="share">
 
         <!-- Go to www.addthis.com/dashboard to customize your tools <div class="addthis_inline_share_toolbox"></div>-->
-        
+
         <div class="share-btn" data-url="https://ahmadow.tk/articles/6176d71ab2b897919660a106">
           <a class="crc btn-vk" data-id="vk"><i class="icon-social fab fa-vk"></i></a>
           <a class="crc btn-facebook" data-id="fb"><i class="icon-social fab fa-facebook-square"></i></a>
@@ -77,7 +67,7 @@
           <a class="crc btn-hn" data-id="hn"><i class="icon-social fab fa-hacker-news"></i></a>
           <a class="crc btn-mail" data-id="mail"><i class="icon-social fas fa-at"></i></a>
           <a class="crc btn-print" data-id="print"><i class="icon-social fas fa-print"></i></a>
-      </div>
+        </div>
 
         <!--
       <div class="icon"> <div class="icon-wrapper">
@@ -118,33 +108,86 @@
               <i class="fab fa-linkedin-in icon-style"></i>
             </div>
             <div id="date"><span class="time"> <span class="tm">
-              <i class="fa fa-calendar-o icon" aria-hidden="true">
-                </i> {{posts.date.toLocaleDateString()}}</span>
+                  <i class="fa fa-calendar-o icon" aria-hidden="true">
+                  </i> {{posts.date.toLocaleDateString()}}</span>
                 <span class="tm">
                   <i class="fa fa-calendar-o icon" aria-hidden="true">
-                    </i> {{posts.date.toLocaleTimeString()}}</span>  
-                <span class="tm"><i class="fa fa-clock-o icon" 
-                  aria-hidden="true"></i><span id="readTime">
-                    </span> min read</span></span> </div>
+                  </i> {{posts.date.toLocaleTimeString()}}</span>
+                <span class="tm"><i class="fa fa-clock-o icon" aria-hidden="true"></i><span id="readTime">
+                  </span> min read</span></span> </div>
           </div>
-    
+
         </div>
 
       </div>
-      
+
 
       <p id="content">{{posts.content}}</p>
       <!-- ShareThis BEGIN -->
       <div class="sharethis-inline-reaction-buttons"></div><!-- ShareThis END -->
-    
 
-      <div class="fb-comments" data-href="ahmadow.tk/articles/{{posts.id}}" data-width="600" data-numposts="5"></div>
+      <div class="row">
+        <div class="col-12">
+          <div class="comments" id="comment">
+            <div class="comments-details">
+              <span class="total-comments comments-sort"><span id="totalComment">{{posts.comment.length}}</span> Comments</span>
+               <!--comment
+              <span class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Sort By <span
+                    class="caret"></span></button>
+                   
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">Top Comments</a>
+                  <a href="#" class="dropdown-item">Newest First</a>
+                </div>
+                -->
+              </span>
+            </div>
+            <div class="comment-box add-comment" >
+              <span class="commenter-pic">
+
+              </span>
+              <span class="commenter-name">
+                <input type="text" placeholder="Write your full name" id="fullName">
+                <input type="email" placeholder="Write your email"  id="email">
+                <textarea rows="5" cols="90" placeholder="Add a public comment" id="text"></textarea>
+                <input type="text" id="id" value="{{posts._id}}" style="display:none;">
+                <button type="submit" class="btn btn-default" onclick="addComment();">Comment</button>
+                
+              </span>
+            </div>
+            <div id="addComment"></div>
+            @each(comment in comments)
+            <div class="comment-box" >
+              <span class="commenter-pic">
+
+              </span>
+              <span class="commenter-name">
+                <a href="#">{{comment.name}}</a> <span
+                  class="comment-time">{{comment.createdAt.toLocaleString()}}</span>
+              </span>
+              <p class="comment-txt more">{{comment.text}}</p>
+              <div class="comment-meta">
+                <button class="comment-like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 99</button>
+                <button class="comment-dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 149</button>
+                <button class="comment-reply reply-popup"><i class="fa fa-reply-all" aria-hidden="true"></i>
+                  Reply</button>
+              </div>
+            </div>
+            @endeach
+          </div>
+        </div>
+      </div>
+
+
     </div>
-   
+
   </div>
 
 
-<script src="/js/share-buttons.js"></script>
-<script src="/js/article.js"></script>
+  <script src="/js/share-buttons.js"></script>
+  <script src="/js/article.js"></script>
+  <script src="/js/moment/src/moment.js"></script>
 </body>
+
 </html>

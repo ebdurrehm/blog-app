@@ -28,6 +28,7 @@
   <!--Css-->
 </head>
 <body>
+  <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
   <div id="coverScreen"  class="LockOn">
   </div>
   
@@ -68,11 +69,16 @@
   
         <p> {{post.description}}</p>
         <p>
+          <div id="bottomPost"></div>
           <div id="tag">
+            <div>
             <i class="fa fa-tags" aria-hidden="true"></i> 
+            
           @each(tag in post.tags)
           <a class="tag" href="/blog/tags/{{tag}}">{{tag}}</a>
           @endeach
+            </div>
+            <div id="commentCount"><i class="fas fa-comments comment"></i> {{post.comment.length}}</div>
         </p>
       </div>
       </div>
