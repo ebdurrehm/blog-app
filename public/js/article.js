@@ -75,7 +75,7 @@ let isLike = false;
 function like() {
 
     window.onclick = (e) => {
-        const baseUrl = 'http://localhost:3000/like';
+        const baseUrl = 'http://ahmadow.azurewebsites.net/like';
         boolean = !boolean;
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
@@ -102,7 +102,7 @@ function dislike() {
 
 
     window.onclick = (e) => {
-        const baseUrl = 'http://localhost:3000/dislike';
+        const baseUrl = 'http://ahmadow.azurewebsites.net/dislike';
         boolean = !boolean;
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
