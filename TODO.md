@@ -19,7 +19,8 @@
 - [ ] Improve SEO omptimizaton
 - [ ] add responsive design for ALL devices.
 - ✔️ Add custom comment system (Design database model for that)
-- [ ] add like/dislike functionility to comment system
+- ✔️ add like/dislike functionility to comment system
+- [ ] add reply functionality to comment system
 
     
 
