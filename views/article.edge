@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="{{posts.description}}" />
   <meta name="twitter:image:src" content="{{posts.image}}">
   <meta name="twitter:domain" content="https://ahmadow.tk">
- 
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
   <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
@@ -130,8 +130,9 @@
         <div class="col-12">
           <div class="comments" id="comment">
             <div class="comments-details">
-              <span class="total-comments comments-sort"><span id="totalComment">{{posts.comment.length}}</span> Comments</span>
-               <!--comment
+              <span class="total-comments comments-sort"><span id="totalComment">{{posts.comment.length}}</span>
+                Comments</span>
+              <!--comment
               <span class="dropdown">
                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Sort By <span
                     class="caret"></span></button>
@@ -143,22 +144,22 @@
                 -->
               </span>
             </div>
-            <div class="comment-box add-comment" >
+            <div class="comment-box add-comment">
               <span class="commenter-pic">
 
               </span>
               <span class="commenter-name">
                 <input type="text" placeholder="Write your full name" id="fullName">
-                <input type="email" placeholder="Write your email"  id="email">
+                <input type="email" placeholder="Write your email" id="email">
                 <textarea rows="5" cols="90" placeholder="Add a public comment" id="text"></textarea>
                 <input type="text" id="id" value="{{posts._id}}" style="display:none;">
                 <button type="submit" class="btn btn-default" onclick="addComment();">Comment</button>
-                
+
               </span>
             </div>
             <div id="addComment"></div>
             @each(comment in comments)
-            <div class="comment-box" >
+            <div class="comment-box">
               <span class="commenter-pic">
 
               </span>
@@ -168,9 +169,12 @@
               </span>
               <p class="comment-txt more">{{comment.text}}</p>
               <div class="comment-meta">
-                <button class="comment-like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 99</button>
-                <button class="comment-dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 149</button>
-                <button class="comment-reply reply-popup"><i class="fa fa-reply-all" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i><button class="comment-like"
+                  data-id="{{comment._id}}" onclick="like();">{{comment.like}}</button>
+                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i><button class="comment-dislike"
+                  data-id="{{comment._id}}" onclick="dislike();">{{comment.dislike}}</button>
+                <button class="comment-reply reply-popup" data-id="{{comment._id}}"><i class="fa fa-reply-all"
+                    aria-hidden="true"></i>
                   Reply</button>
               </div>
             </div>

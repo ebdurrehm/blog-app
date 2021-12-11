@@ -37,7 +37,8 @@ var deleteCon = require('./controllers/delete');
 var updateCon = require('./controllers/update');
 var sizeCon = require('./controllers/sizeCon');
 var postComment = require('./controllers/postComment');
-var getComment = require('./controllers/getComments');
+var like = require('./controllers/like');
+var disLike = require('./controllers/disLike');
 //reaad .env file
 dotenv.config({ path: 'secret.env' });
 //connect to database
@@ -52,16 +53,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 
 //midlewares
-app.use((err, req, res, next) => {
-    const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-    res.status(statusCode);
-    res.json({
-      message: err.message,
-      stack: process.env.NODE_ENV === 'production' ? {} : error.stack,
-    });
-    next();
-  });
-;
+
+
 app.use(connectFlash());
 app.use(express.static('public'));
 app.use(upload());
@@ -108,9 +101,10 @@ app.get('/admin/search', searchCon);
 app.get('/admin/delete/:id', deleteCon);
 app.post('/admin/update/:id', updateCon);
 app.post('/comment', postComment);
-app.get('/comment/:id', getComment);
-app.get('*',(req, res)=>{
-    res.statusCode(404).send('error 404 not found');
+app.get('/like/', like);
+app.get('/dislike', disLike);
+app.get('*', (req, res) => {
+    res.status(404).send('error 404 not found');
 })
 
 

@@ -1,6 +1,9 @@
+
+
 const html = document.querySelector('#content');
 const tmp = html.textContent;
 const id = document.getElementById('id').value;
+
 html.innerHTML = tmp;
 document.querySelectorAll('oembed[url]').forEach(element => {
     // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
@@ -45,8 +48,8 @@ function addComment() {
             </span>
             <p class="comment-txt more">${text}</p>
             <div class="comment-meta">
-              <button class="comment-like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 99</button>
-              <button class="comment-dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 149</button>
+              <button class="comment-like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 0</button>
+              <button class="comment-dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 0</button>
               <button class="comment-reply reply-popup"><i class="fa fa-reply-all" aria-hidden="true"></i>
                 Reply</button>
             </div></div>`;
@@ -67,8 +70,57 @@ function addComment() {
 
 }
 
+let boolean = false;
+let isLike = false;
+function like() {
 
-function like (){
-    const likeBtn = document.getElementsByClassName('comment-like');
-    //under development
+    window.onclick = (e) => {
+        const baseUrl = 'http://localhost:3000/like';
+        boolean = !boolean;
+        let commentId = e.target.getAttribute('data-id');
+        console.log(commentId)
+        let likeCount = e.target.innerText;
+        let like = boolean ? parseInt(likeCount) + 1 : parseInt(likeCount) !== 0 ? parseInt(likeCount) - 1 : 0;
+        console.log(like)
+
+        if (commentId !== null && commentId !== NaN) {
+            e.target.innerText = like;
+            axios.get(baseUrl, { params: { count: like, id: commentId, isLike: !isLike } })
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+
+}
+
+
+function dislike() {
+
+
+    window.onclick = (e) => {
+        const baseUrl = 'http://localhost:3000/dislike';
+        boolean = !boolean;
+        let commentId = e.target.getAttribute('data-id');
+        console.log(commentId)
+        let disLikeCount = e.target.innerText;
+        let disLike = boolean ? parseInt(disLikeCount) + 1 : parseInt(disLikeCount) !== 0 ? parseInt(disLikeCount) - 1 : 0;
+        console.log(disLike)
+
+        if (commentId !== null && commentId !== NaN) {
+            e.target.innerText = disLike;
+
+            axios.get(baseUrl, { params: { count: disLike, id: commentId, isLike: isLike } })
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+
 }

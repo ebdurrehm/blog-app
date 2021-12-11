@@ -338,3 +338,6 @@ input [type="submit"]{
 button{
   cursor: pointer;
 }
+.commentId{
+  display: none;
+}
