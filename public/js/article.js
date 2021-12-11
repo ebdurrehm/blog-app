@@ -59,7 +59,7 @@ function addComment() {
     comment.insertBefore(elem, addComment);
     console.log(totalComment.value)
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
-    axios.post('http://localhost:3000/comment', { id, name, email, text })
+    axios.post('http://ahmadow.azurewebsites.net/comment', { id, name, email, text })
         .then((response) => {
             console.log(response.data)
 
