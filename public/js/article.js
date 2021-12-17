@@ -59,7 +59,11 @@ function addComment() {
     comment.insertBefore(elem, addComment);
     console.log(totalComment.value)
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
+<<<<<<< HEAD
     axios.post('http://localhost:3000/comment', { id, name, email, text })
+=======
+    axios.post('https://ahmadow.azurewebsites.net/comment', { id, name, email, text })
+>>>>>>> ba283c6a13942b0e05b747f9d2435aa394feff6d
         .then((response) => {
             console.log(response.data)
 
@@ -75,8 +79,12 @@ let isLike = false;
 function like() {
 
     window.onclick = (e) => {
+<<<<<<< HEAD
 
         const baseUrl = 'http://localhost:3000/like';
+=======
+        const baseUrl = 'https://ahmadow.azurewebsites.net/like';
+>>>>>>> ba283c6a13942b0e05b747f9d2435aa394feff6d
         boolean = !boolean;
         e.target.style.color = boolean ? 'blue' : 'black';
         let commentId = e.target.getAttribute('data-id');
@@ -104,7 +112,7 @@ function dislike() {
 
 
     window.onclick = (e) => {
-        const baseUrl = 'http://localhost:3000/dislike';
+        const baseUrl = 'https://ahmadow.azurewebsites.net/dislike';
         boolean = !boolean;
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
