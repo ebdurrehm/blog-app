@@ -142,7 +142,7 @@ function likePost() {
 
 
     const Btn = document.getElementById('postLike');
-    const baseUrl = 'http://localhost:3000/postlike';
+    const baseUrl = 'https://ahmadow.azurewebsites.net/postlike';
 
 
 
@@ -164,7 +164,7 @@ function likePost() {
 
 let isRead = true;
 function countRead() {
-    const baseUrl = 'http://localhost:3000/postread';
+    const baseUrl = 'https://ahmadow.azurewebsites.net/postread';
     let countRead = document.getElementById('countRead');
     let s = document.getElementById('numb');
 
