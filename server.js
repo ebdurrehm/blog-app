@@ -39,6 +39,8 @@ var sizeCon = require('./controllers/sizeCon');
 var postComment = require('./controllers/postComment');
 var like = require('./controllers/like');
 var disLike = require('./controllers/disLike');
+var postLike = require('./controllers/likePost');
+var readCount = require('./controllers/readPostCount');
 //reaad .env file
 dotenv.config({ path: 'secret.env' });
 //connect to database
@@ -54,7 +56,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 //midlewares
 
-
+const errorHandler = require('./controllers/errorHandler');
 app.use(connectFlash());
 app.use(express.static('public'));
 app.use(upload());
@@ -103,14 +105,16 @@ app.post('/admin/update/:id', updateCon);
 app.post('/comment', postComment);
 app.get('/like/', like);
 app.get('/dislike', disLike);
+app.get('/postlike', postLike);
+app.get('/postread',readCount);
 app.get('*', (req, res) => {
-    res.status(404).send('error 404 not found');
+    res.status(404).send('<h1>error 404 not found</h1>');
 })
+app.use(errorHandler);
 
 
 
-var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
-var server_host = process.env.YOUR_HOST || '0.0.0.0';
-app.listen(server_port, server_host, function() {
-    console.log('Listening on port %d', server_port);
+
+app.listen(3000, () => {
+    console.log("app listening")
 });

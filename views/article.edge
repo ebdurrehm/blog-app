@@ -24,7 +24,9 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/7566c6a24f.js" crossorigin="anonymous"></script>
   <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/design/article.css">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
@@ -45,7 +47,7 @@
 
   <div class="container">
     <div class="article-container">
-      <h4 style="margin-bottom: 5px; color: blue;">INBOUND SUCCESS</h4>
+      <h4 style="margin-bottom: 5px; color: blue;">{{posts.tags[0].toUpperCase()}}</h4>
       <h1>{{posts.title}}</h1>
 
       <p style="color:#75706f; font-style:italic;">{{posts.description}}</p>
@@ -122,7 +124,10 @@
       </div>
 
 
-      <p id="content">{{posts.content}}</p>
+      <div onmouseout="countRead();">
+        <p id="content">{{posts.content}}</p>
+      </div>
+      <hr id="postUnderLine" />
       <!-- ShareThis BEGIN -->
       <div class="sharethis-inline-reaction-buttons"></div><!-- ShareThis END -->
 
@@ -130,19 +135,13 @@
         <div class="col-12">
           <div class="comments" id="comment">
             <div class="comments-details">
-              <span class="total-comments comments-sort"><span id="totalComment">{{posts.comment.length}}</span>
-                Comments</span>
-              <!--comment
-              <span class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Sort By <span
-                    class="caret"></span></button>
-                   
-                <div class="dropdown-menu">
-                  <a href="#" class="dropdown-item">Top Comments</a>
-                  <a href="#" class="dropdown-item">Newest First</a>
-                </div>
-                -->
-              </span>
+              <div class="tooltip"><span class="tooltiptext">Comments</span><i
+                  class="fas fa-comment postComment"></i><span id="totalComment"> {{posts.comment.length}}</span></div>
+              <div class="tooltip" id="eyeRead"><span style="font-size: 15px;" class="tooltiptext">It was read <span
+                    id="numb">{{posts.readCount}}</span> times</span><i class="fas fa-eye"></i> <span
+                  style="font-size: 15px;" id="countRead">{{posts.readCount}}</span></div>
+              <button class="tooltip" id="likePost" onclick="likePost()"><span class="tooltiptext">Like the
+                  post</span><i class="fab fa-gratipay like"></i> <span id="postLike">{{posts.likes}}</span></button>
             </div>
             <div class="comment-box add-comment">
               <span class="commenter-pic">
@@ -153,7 +152,8 @@
                 <input type="email" placeholder="Write your email" id="email">
                 <textarea rows="5" cols="90" placeholder="Add a public comment" id="text"></textarea>
                 <input type="text" id="id" value="{{posts._id}}" style="display:none;">
-                <button type="submit" class="btn btn-default" onclick="addComment();">Comment</button>
+                <button class="tooltip" type="submit" class="btn btn-default" onclick="addComment();"><span
+                    class="tooltiptext">Add comment</span>Comment</button>
 
               </span>
             </div>
@@ -169,10 +169,10 @@
               </span>
               <p class="comment-txt more">{{comment.text}}</p>
               <div class="comment-meta">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i><button class="comment-like"
-                  data-id="{{comment._id}}" onclick="like();">{{comment.like}}</button>
-                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i><button class="comment-dislike"
-                  data-id="{{comment._id}}" onclick="dislike();">{{comment.dislike}}</button>
+                <i class="fa fa-thumbs-o-up tooltip" aria-hidden="true" data-id="{{comment._id}}" onclick="like()"><span
+                    class="tooltiptext">Like the comment</span>{{'     '}}{{comment.like}}</i>
+                <i class="fa fa-thumbs-o-down tooltip" aria-hidden="true" data-id="{{comment._id}}"
+                  onclick="dislike();"><span class="tooltiptext">Dislike the comment</span> {{comment.dislike}}</i>
                 <button class="comment-reply reply-popup" data-id="{{comment._id}}"><i class="fa fa-reply-all"
                     aria-hidden="true"></i>
                   Reply</button>

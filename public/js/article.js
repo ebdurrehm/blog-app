@@ -59,7 +59,7 @@ function addComment() {
     comment.insertBefore(elem, addComment);
     console.log(totalComment.value)
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
-    axios.post('http://ahmadow.azurewebsites.net/comment', { id, name, email, text })
+    axios.post('http://localhost:3000/comment', { id, name, email, text })
         .then((response) => {
             console.log(response.data)
 
@@ -75,8 +75,10 @@ let isLike = false;
 function like() {
 
     window.onclick = (e) => {
+
         const baseUrl = 'http://localhost:3000/like';
         boolean = !boolean;
+        e.target.style.color = boolean ? 'blue' : 'black';
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
         let likeCount = e.target.innerText;
@@ -124,3 +126,54 @@ function dislike() {
     }
 
 }
+let isClicked = false;
+function likePost() {
+    isClicked = !isClicked;
+    const likeBtn = document.getElementById('likePost');
+    likeBtn.style.color = isClicked ? 'crimson' : 'gray';
+
+
+    const Btn = document.getElementById('postLike');
+    const baseUrl = 'http://localhost:3000/postlike';
+
+
+
+
+    let count = parseInt(Btn.innerText);
+    let like = isClicked ? count + 1 : count !== 0 ? count - 1 : 0;
+    Btn.innerText = like;
+    console.log(like);
+    axios.get(baseUrl, { params: { likes: like, id: id } })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
+}
+
+
+let isRead = true;
+function countRead() {
+    const baseUrl = 'http://localhost:3000/postread';
+    let countRead = document.getElementById('countRead');
+    let s = document.getElementById('numb');
+
+
+    let read = countRead.innerText = isRead ? parseInt(countRead.innerText) + 1 : parseInt(countRead.innerText);
+
+    s.innerText = countRead.innerText;
+    if (isRead) {
+        axios.get(baseUrl, { params: { readCount: read, id: id } })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+    isRead = false;
+}
+
+

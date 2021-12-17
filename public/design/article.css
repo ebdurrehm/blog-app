@@ -1,3 +1,7 @@
+
+
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -89,8 +93,13 @@
   }
 
   #content{
+      font-size: 20px;
+      font-weight: 600;
       line-height: 1.6;
-  }
+      letter-spacing: -0.003em;
+      font-family: 'Source Sans Pro', sans-serif !important;
+      color: rgb(0 0 0);
+    }
   iframe{
     background-color:floralwhite;
     box-shadow: 0px 1px 1px 1px #8b8eaf;
@@ -178,7 +187,14 @@
     color: #5e5e5e;
 }
 .comments-details {
-    padding: 15px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 13px;
+  padding: 15px 15px;
+  margin-bottom: 73px;
+  background-color: #373737;
+  border-radius: 9px;
 }
 .comments .comments .dropdown,
 .comments .dropup {
@@ -192,7 +208,7 @@
     width: 100%;
     float: left;
     height: 100%;
-    background-color: #FAFAFA;
+    background-color: whitesmoke;
     padding: 10px 10px 10px;
     margin-bottom: 15px;
     border-radius: 5px;
@@ -277,11 +293,15 @@
     font-weight: bold;
 }
 .comments .comment-meta {
-    font-size: 14px;
-    color: #333;
-    padding: 2px 5px 0px;
-    line-height: 20px;
-    float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  font-size: 14px;
+  color: #333;
+  padding: 2px 5px 0px;
+  line-height: 20px;
+  float: right;
 }
 .comments .reply-box {
     display: none;
@@ -340,4 +360,101 @@ button{
 }
 .commentId{
   display: none;
+}
+.like{
+  font-size: 29px;
+}
+.like:hover{
+  color:crimson;
+}
+.like:active{
+  color: crimson;
+}
+.like:visited{
+ color: crimson;
+}
+#likePost{
+  width: 59px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: rgb(150, 142, 142);
+}
+#likePost:hover{
+  transform: scale(1.2);
+}
+.fa-thumbs-o-up:hover{
+cursor: pointer;
+color:deepskyblue;
+}
+.fa-thumbs-o-down:hover{
+  cursor: pointer;
+  color: red;
+  }
+
+#postUnderLine{
+  width: 100%;
+  height: 4px;
+  background-color: gold;
+}
+.postComment{
+  color: teal;
+  font-size: 33px;
+}
+.postComment:hover{
+  transform: scale(1.2);
+}
+#totalComment{
+  color: rgb(150, 142, 142);
+  font-weight: 400;
+}
+.code{
+  background-color: #2c3437;
+}
+
+#eyeRead{
+  font-size: 31px;
+  color: beige;
+  font-weight: 400;
+}
+#eyeRead:hover{
+  transform: scale(1.2);
+}
+
+/*tooltip */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
