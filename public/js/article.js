@@ -86,6 +86,7 @@ function like() {
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
         let likeCount = e.target.innerText;
+        likeCount = likeCount.match(/[0-9]/)[0];
         let like = boolean ? parseInt(likeCount) + 1 : parseInt(likeCount) !== 0 ? parseInt(likeCount) - 1 : 0;
         console.log(like)
 
@@ -113,6 +114,7 @@ function dislike() {
         let commentId = e.target.getAttribute('data-id');
         console.log(commentId)
         let disLikeCount = e.target.innerText;
+        disLikeCount = disLikeCount.match(/[0-9]/)[0];
         let disLike = boolean ? parseInt(disLikeCount) + 1 : parseInt(disLikeCount) !== 0 ? parseInt(disLikeCount) - 1 : 0;
         console.log(disLike)
 
