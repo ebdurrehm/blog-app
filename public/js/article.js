@@ -60,8 +60,8 @@ function addComment() {
     console.log(totalComment.value)
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
 
-    axios.post('https://ahmadow.azurewebsites.net/comment', { id, name, email, text })
 
+    axios.post('https://ahmadow.azurewebsites.net/comment', { id, name, email, text })
         .then((response) => {
             console.log(response.data)
 
@@ -79,6 +79,7 @@ function like() {
     window.onclick = (e) => {
 
         const baseUrl = 'https://ahmadow.azurewebsites.net/like';
+
 
         boolean = !boolean;
         e.target.style.color = boolean ? 'blue' : 'black';
