@@ -82,7 +82,6 @@
     width: 75px;
     border-radius: 50%;
     height: 75px;
-    background-image: url('https://images.unsplash.com/photo-1528892952291-009c663ce843?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMzg3NDA0Ng&ixlib=rb-1.2.1&q=85" alt="author profile');
     object-fit: contain;
     background-size: cover;
     background-position: center;
@@ -205,15 +204,15 @@
     border: none;
 }
 .comments .comment-box {
-    width: 100%;
-    float: left;
-    height: 100%;
-    background-color: whitesmoke;
-    padding: 10px 10px 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-top: 1px;
+  width: 100%;
+  float: left;
+  height: 100%;
+  background-color: whitesmoke;
+  padding: 29px 8px 31px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 1px;
 }
 .comments .add-comment {
     background-color: transparent;
@@ -341,7 +340,7 @@
 
 textarea{
   border: none;
-  border-bottom: 1px solid #ddd ;
+  border: 1px solid #ddd ;
   outline: none;
 
 
