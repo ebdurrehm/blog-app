@@ -7,7 +7,8 @@ module.exports = (req, res)=>{
     {"$push":{"comment":{
         name: req.body.name,
         email: req.body.email,
-        text: req.body.text
+        text: req.body.text,
+        image:req.body.image
     }}
 }, (err, result)=>{
     res.json(result)
