@@ -8,7 +8,13 @@ const UserSchema = new mongoose.Schema({
     usrLastName:  {type: String, required: true},
     usrEmail: {type: String, required: true, unique: true},
     usrPassword: {type: String, required: "enter"},
-    isAdmin:{type:String, required:true}
+    isAdmin:{type:String, required:true},
+    userImage:{type:String, required:false},
+    social_id:{type:String, required:false},
+    profile_url:{type:String, required:false},
+    provider:{type:String,required:false},
+    last_login:{type:Date, required:false},
+    login_count:{type:Number}
 });
 
 //do some processses before document (schema) saved and go on next process.
