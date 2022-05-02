@@ -22,12 +22,14 @@
     "express-subdomain": "^1.0.5",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
+    "mongodb": "^4.1.0",
     "mongoose": "^6.0.6",
     "nanoid": "^3.1.30",
     "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-github2": "^0.1.12",
     "save": "^2.4.0",
-    "share-buttons": "^1.8.0",
-    "mongodb": "3.6.0"
+    "share-buttons": "^1.8.0"
   },
   "plugins": [
     {
@@ -35,6 +37,7 @@
     }
   ],
   "devDependencies": {
-    "jest": "^27.4.3"
+    "jest": "^27.4.3",
+    "supertest": "^6.2.2"
   }
 }
