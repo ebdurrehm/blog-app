@@ -33,14 +33,17 @@ readingTime();
 
 function addComment() {
     const addComment = document.getElementById('addComment');
-    const name = document.getElementById('fullName').value;
+    const name = document.getElementById('name').textContent;
     const email = document.getElementById('email').value;
     const text = document.getElementById('text').value;
     const totalComment = document.getElementById('totalComment');
+    const image= document.getElementById('commentarImage').src;
+    document.getElementById('text').value="";
     const date = new Date();
     const html = `
             <div class="comment-box" >
               <span class="commenter-pic">
+              <img src="${image}"  style="width: 53px;height: 53px;">
                </span>
             <span class="commenter-name">
               <a href="#">${name}</a> <span
@@ -61,8 +64,9 @@ function addComment() {
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
 
 
-    axios.post('https://ahmadow.azurewebsites.net/comment', { id, name, email, text })
+    axios.post('http://localhost:80/comment', { id, name, email, text,image })
         .then((response) => {
+            
             console.log(response.data)
 
         })
