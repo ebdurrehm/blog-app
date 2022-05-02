@@ -1,5 +1,5 @@
 const express = require('express');
-const Router = express.Router();
+const Router = express.Router({mergeParams:true});
 
 //blog controllers
 const indexPageCon = require("../controllers/indexPage");//get all posts from database

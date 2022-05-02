@@ -1,5 +1,5 @@
 const express = require('express');
-const Router = express.Router();
+const Router = express.Router({mergeParams:true});
 
 //Admin controllers
 const getAdminCon = require('./../controllers/getAdminCon');
@@ -11,7 +11,7 @@ const auth = require('../middleware/auth');
 const isAdmin = require('../middleware/isAdmin');
 
 
-Router.get('/admin', getAdminCon);
+Router.get('/admin',auth,isAdmin, getAdminCon);
 Router.post('/admin/:slug', postAdminCon);
 Router.get('/admin/search', searchCon);
 Router.post('/admin/update/:id', updateCon);
