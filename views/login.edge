@@ -1,19 +1,12 @@
 @layout('layouts.app')
-
+<link rel="stylesheet" href="/design/login.css"/>
 @section('content')
     <div class="container">
+        <h1 id="social-header">Login via</h1>
         <div class="form">
-            <form action="/blog/user/login" method="POST" enctype="multipart/form-data">
-                
-                <label>Enter your  email:
-                <input type="email" name="email">
-                </label><br>
-                <label>Enter your  password:
-                    <input type="password" name="password">
-                </label><br>
-                <button id="signup">Log In</button>
-
-            </form>
+          <p><a href='/auth/github/'><ion-icon name="logo-github" class="social-icon"></ion-icon></a></p>
+          <p><a href='/auth/google/'><ion-icon name="logo-google" class="social-icon" id="google"></ion-icon></a></p>
+          <p><a href='/auth/local'><ion-icon name="log-in-outline" class="social-icon"></ion-icon></a></p>
         </div>
     </div>
     @endsection

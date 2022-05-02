@@ -145,11 +145,11 @@
             @if(id)
             <div class="comment-box add-comment">
               <span class="commenter-pic">
-
+                <img src="{{user.userImage}}" id="commentarImage" style="width: 53px;height: 53px;">
               </span>
               <span class="commenter-name">
-                <input type="text" placeholder="Write your full name" id="fullName">
-                <input type="email" placeholder="Write your email" id="email">
+                <p id="name">{{user.usrFirstName}}</p>
+                <p id="email">{{user.usrLastName}}</p>
                 <textarea rows="5" cols="90" placeholder="Add a public comment" id="text"></textarea>
                 <input type="text" id="id" value="{{posts._id}}" style="display:none;">
                 <button class="tooltip" type="submit" class="btn btn-default" onclick="addComment();"><span
@@ -167,7 +167,7 @@
             @each(comment in comments)
             <div class="comment-box">
               <span class="commenter-pic">
-
+                <img src="{{comment.image}}"  style="width: 53px;height: 53px;">
               </span>
               <span class="commenter-name">
                 <a href="#">{{comment.name}}</a> <span
@@ -201,3 +201,4 @@
 </body>
 
 </html>
+
