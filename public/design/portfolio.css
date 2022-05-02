@@ -302,19 +302,32 @@ nav {
     bottom: 50%;
   }
  
-  .footer{
-    display:  flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color:var(--bg-color);
-    padding: 1.25rem;
+ 
+element.style {
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+user agent stylesheet
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+footer {
+    background-color: var(--bg-color);
+    padding: 3.25rem;
     text-align: center;
-    margin: 2rem 0 0;
+    margin: 19em 0px 0px;
     position: relative;
     bottom: 1%;
-    gap: 30px;
-    
-  }
+}
   .footer-infos{
     display: flex;
     flex-direction: column;
@@ -470,7 +483,35 @@ nav {
   }
 }
 
+.form{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: row;
+ gap: 40px;
+ margin: 250px;
+ margin-top: 67px;
+}
 
+
+.social-icon{
+  font-size: 105px;
+  color: black;
+  border: 5px dotted #4756df;
+  border-radius: 50%;
+}
+.social-icon:hover{
+  cursor: pointer;
+  color: crimson;
+}
+#google{
+  
+  color: brown;
+}
+#social-header{
+  text-align: center;
+  margin-top:160px;
+}
 
 @media screen and (max-width: 420px) {
   .hero img {
