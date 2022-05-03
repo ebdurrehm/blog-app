@@ -1,12 +1,5 @@
 
-module.exports=(req,res)=>{
-    
-        if(req.session.isAdmin){
-            res.render('dashboard');
-        }
-    
-        else{
-            res.send("Permission denied");
-        }
-    
+module.exports = (req, res) => {
+    res.render('dashboard');
+
 }
