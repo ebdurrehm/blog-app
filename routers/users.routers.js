@@ -32,11 +32,36 @@ Router.get('/user/logout', logoutCon);
 Router.get('/users/author', getAuthorsCon);
 Router.post('/users/author/new', postAuthorCon);
 Router.get('/users/profile', auth, userPageCon);
+
+//social authentication routes
+//github routes
 Router.get('/auth/local',checkLogin,loginLocal);
 Router.get('/auth/github/',passport.authenticate('github'));
-Router.get('/auth/github/callback',passport.authenticate('github',{failureRedirect:'/blog/'}),(req,res)=>{
+Router.get('/auth/github/callback',passport.authenticate('github',{failureRedirect:'/blog/user/login'}),(req,res)=>{
     req.session.userId=req.user.social_id;
-    res.redirect('/blog/');
+    req.session.isAdmin=req.user.isAdmin;
+    if(req.session.post_id){
+      res.redirect('/blog/'+req.session.post_id);
+    }
+    else{
+      res.redirect('/blog');
+    }
+   
+})
+
+//google
+Router.get('/auth/google/',passport.authenticate('google',{scope:['email','profile']}));
+Router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/blog/user/login'}),(req,res)=>{
+    req.session.userId=req.user.social_id;
+    req.session.isAdmin=req.user.isAdmin;
+    console.log(req.session);
+    if(req.session.post_id){
+      res.redirect('/blog/'+req.session.post_id);
+    }
+    else{
+      res.redirect('/blog');
+    }
+    
 })
 
 module.exports = Router;
