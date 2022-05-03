@@ -20,41 +20,13 @@ function hide(modalid) {
   modal.style.display = "none";
 }
 
-
-function request(elem, method, event) {
+//search post
+function searchPost(elem, method, event){
+  var keyword = document.getElementById('keyword').value;
   var f0 = document.getElementById(elem);
   var url = f0.getAttribute('action');
 
   event.preventDefault();
-  CKEDITOR.instances.editor1.updateElement(); //update textarea with editor text
-  //create formdata object
-  var formdata = new FormData(f0);
-  var keyword = document.getElementById('keyword').value;
-  console.log(formdata.content);
-  //when method is post
-  if (method === 'post') {
-    axios.post(url, formdata).then(
-      function (response) {
-        var modal = document.getElementById("success");
-        //display success modal
-        modal.style.display = "block";
-        console.log(response.data);
-        //assaign the link of the new post to modal a elment
-        document.getElementById('new').href = response.data.url;
-      }
-    ).catch(function (error) {
-      //when an error occur, display error message to the user
-      document.getElementById("failure").style.display = "block";
-      document.getElementById('fail-msg').innerText = error;
-      //after 4 second hide error message
-      setInterval(() => {
-        document.getElementById('failure').style.display = "none";
-      }, 4000);
-      console.log(error);
-    })
-  }
-  //if method is 'get'
-  else {
     axios.get(url, { params: { keyword: keyword } })
       .then((response) => {
         //display main container of the returned posts
@@ -93,8 +65,40 @@ function request(elem, method, event) {
         }, 4000);
         console.log(error);
       })
-  }
+  
+}
 
+function request(elem, method, event) {
+  var f0 = document.getElementById(elem);
+  var url = f0.getAttribute('action');
+
+  event.preventDefault();
+  CKEDITOR.instances.editor1.updateElement(); //update textarea with editor text
+  //create formdata object
+  var formdata = new FormData(f0);
+  console.log(formdata.content);
+
+ 
+    axios.post(url, formdata).then(
+      function (response) {
+        var modal = document.getElementById("success");
+        //display success modal
+        modal.style.display = "block";
+        console.log(response.data);
+        //assaign the link of the new post to modal a elment
+        document.getElementById('new').href = response.data.url;
+      }
+    ).catch(function (error) {
+      //when an error occur, display error message to the user
+      document.getElementById("failure").style.display = "block";
+      document.getElementById('fail-msg').innerText = error;
+      //after 4 second hide error message
+      setInterval(() => {
+        document.getElementById('failure').style.display = "none";
+      }, 4000);
+      console.log(error);
+    })
+  
 }
 
 //post delete function     
