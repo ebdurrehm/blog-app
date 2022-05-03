@@ -86,6 +86,7 @@
     background-size: cover;
     background-position: center;
     margin-top: 5px;
+    background-image: url('./../icons/abdurrahim.jpg');
   }
   #date {
     color: gray;
