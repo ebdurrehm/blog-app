@@ -34,6 +34,7 @@ readingTime();
 function addComment() {
     const addComment = document.getElementById('addComment');
     const name = document.getElementById('name').textContent;
+    const commentarId = document.getElementById('name').dataset.id;
     const email = document.getElementById('email').value;
     const text = document.getElementById('text').value;
     const totalComment = document.getElementById('totalComment');
@@ -60,11 +61,11 @@ function addComment() {
     elem.innerHTML = html;
     const comment = document.getElementById('comment');
     comment.insertBefore(elem, addComment);
-    console.log(totalComment.value)
+    console.log(commentarId)
     totalComment.innerText = parseInt(totalComment.innerText) + 1;
 
 
-    axios.post('http://localhost:80/comment', { id, name, email, text,image })
+    axios.post('http://localhost:80/comment', { id, name, email, text,image,commentarId })
         .then((response) => {
             
             console.log(response.data)

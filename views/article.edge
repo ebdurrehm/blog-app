@@ -148,7 +148,7 @@
                 <img src="{{user.userImage}}" id="commentarImage" style="width: 53px;height: 53px;">
               </span>
               <span class="commenter-name">
-                <p id="name">{{user.usrFirstName}}</p>
+                <p id="name" data-id="{{user._id}}">{{user.usrFirstName}}</p>
                 <p id="email">{{user.usrLastName}}</p>
                 <textarea rows="5" cols="90" placeholder="Add a public comment" id="text"></textarea>
                 <input type="text" id="id" value="{{posts._id}}" style="display:none;">
@@ -170,7 +170,7 @@
                 <img src="{{comment.image}}"  style="width: 53px;height: 53px;">
               </span>
               <span class="commenter-name">
-                <a href="#">{{comment.name}}</a> <span
+                <a href="/users/profile/{{comment.commentarId}}">{{comment.name}}</a> <span
                   class="comment-time">{{comment.createdAt.toLocaleString()}}</span>
               </span>
               <p class="comment-txt more">{{comment.text}}</p>
