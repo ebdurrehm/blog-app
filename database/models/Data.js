@@ -21,7 +21,8 @@ const articleSchema = new Schema({
         like: {type: Number, default: 0},
         dislike: {type: Number, default: 0},
         createdAt: {type: Date, default: Date.now},
-        image:{type:String, required:false, default:'./../../public/images/user-avatar.png'}
+        image:{type:String, required:false, default:'./../../public/images/user-avatar.png'},
+        commentarId: {type: String, required:true}
 
     }]
 
