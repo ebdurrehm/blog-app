@@ -12,7 +12,7 @@ const isAdmin = require('../middleware/isAdmin');
 
 
 Router.get('/admin',auth,isAdmin, getAdminCon);
-Router.post('/admin/:slug', postAdminCon);
+// Router.post('/admin/:slug', postAdminCon);
 Router.get('/admin/search', searchCon);
 Router.post('/admin/update/:id', updateCon);
 Router.post('/admin/store', uploadDataCon);
