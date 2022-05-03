@@ -41,7 +41,10 @@ app.use(expressSession({
     saveUninitialized: true, //save all sessions to database
     store: mongoStore.create({
         mongoUrl:process.env.MONGO_URI
-    })
+    }),
+    cookie:{
+        maxAge: 1000*60*60*24
+    }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
