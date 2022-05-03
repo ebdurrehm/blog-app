@@ -1,5 +1,5 @@
 module.exports=function(req,res,next){
-    if(req.session.isAdmin ==='true'){
+    if(req.user.isAdmin ==='true'){
        
         next();
         
