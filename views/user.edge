@@ -2,7 +2,17 @@
 @section('content')
 <div class="container-user">
     <div id="user-card">
-        <h2>{{user.usrFirstName}} {{user.usrLastName}}</h2>
+        <img src="{{user.userImage}}" alt="user's avatar" id="user_image">
+        <h2>{{user.usrFirstName}} {{user.usrLastName}} 
+            @if(user.isAdmin==='true')
+            <ion-icon name="checkmark-circle" id="isAdmin"></ion-icon>
+            @endif
+        </h2>
+        <a href="{{user.profile_url}}"><ion-icon name="logo-github" class="profile-icon"></ion-icon> <b>Github</b></a>
+        <div id="console-info">
+        <p class="profile-p"><ion-icon name="caret-forward-outline" class="profile-icon"></ion-icon> <b>Last login:</b> {{user.last_login}}</p>
+        <p class="profile-p"><ion-icon name="caret-forward-outline" class="profile-icon"></ion-icon> Today logged <b>{{user.login_count}}</b> times</p>
+        </div>
     </div>
 </div>
 @endsection
