@@ -14,6 +14,7 @@ const blogRouters = require('./routers/blog.routers');
 const articleRouters = require('./routers/article.routers');
 const errorRouters = require('./routers/error.routers');
 const indexRouters = require('./routers/index.routers');
+const fileRouter = require('./routers/file.router');
 const passport = require('passport');
 const passportConfig = require('./config/passport.config');
 
@@ -64,6 +65,7 @@ app.use(userRouters);
 app.use(blogRouters);
 app.use(articleRouters);
 app.use(indexRouters);
+app.use(fileRouter);
 app.use(errorRouters);
 app.use(errorHandler);
 passportConfig.init();

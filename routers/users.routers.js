@@ -31,7 +31,7 @@ Router.post('/blog/user/login', compareLoginCon);
 Router.get('/user/logout', logoutCon);
 Router.get('/users/author', getAuthorsCon);
 Router.post('/users/author/new', postAuthorCon);
-Router.get('/users/profile', auth, userPageCon);
+Router.get('/users/profile/:id', auth, userPageCon);
 
 //social authentication routes
 //github routes
