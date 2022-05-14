@@ -112,6 +112,9 @@ nav {
     
     height: 30rem;
   }
+  .bio-title{
+    font-family: 'Indie Flower', cursive;
+  }
   .download{
       padding: 1rem;
       margin:2rem;
@@ -120,7 +123,7 @@ nav {
       box-shadow: 0px 2px 11px 2px var(--primary-shadow);
       color: rgb(255, 255, 255);
       border: none;
-  }
+  cursor: pointer;}
   .download:hover{
       background-color: mediumblue;
       transform: scale(1.5);
@@ -133,18 +136,19 @@ nav {
   .bio p {
     line-height: var(--line-height);
     padding: 0.3rem 0;
+    margin-bottom: 55px;
   }
 
   .more-about {
     background-color: var(--bg-color);
-    padding: 1rem 6rem;
+    padding: 1rem 22rem;
     
   }
   
   .more-about h2 {
     margin-bottom: var(--bottom-margin);
     text-align: center;
-  }
+  font-family: 'Indie Flower', cursive;}
   
   .more-about p {
     line-height: var(--line-height);
@@ -206,11 +210,11 @@ nav {
   .projects-title {
     text-align: center;
     margin-bottom: 1rem;
-  }
+  font-family: 'Indie Flower', cursive;}
   
   .project-container {
     text-align: center;
-    width: 21.875rem;
+    width: 23.875rem;
     padding: 1rem;
   }
 
@@ -230,8 +234,8 @@ nav {
     background-color: #fff;
     border-radius: 11px;
     box-shadow: 0 3px 10px var(--primary-shadow);
-    padding: 20px;
-    margin: 10px;
+    padding: 22px;
+    margin: 31px;
   }
 
   .contact {
@@ -241,10 +245,10 @@ nav {
   .contact h2 {
     text-align: center;
     margin-bottom: var(--bottom-margin-2);
-  }
+  font-family: 'Indie Flower', cursive;}
   
   .contact-form-container {
-    max-width: 40.75rem;
+    width: 67.75rem;
     margin: 0 auto;
     padding: 0.938rem;
     border-radius: 5px;
@@ -301,8 +305,56 @@ nav {
     right: 1%;
     bottom: 50%;
   }
- 
- 
+
+  .container-user{
+    padding: 72px;
+    padding-top: 2px;
+  }
+  #user-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 31px;
+    align-items: center;
+    margin-top: 105px;
+    background-color: aliceblue;
+    padding: 68px;
+  }
+  #user_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 7px dotted blue;
+  }
+  .profile-icon{
+    font-size: 20px;
+    color: darkviolet;
+  }
+  #login-icon{
+    color: rgb(47, 88, 5);
+  }
+  .profile-p{
+    font-size: larger;
+    margin-top: 5px;
+  }
+  #isAdmin{
+    color:deepskyblue;
+  }
+  #console-info{
+    padding: 20px;
+    background-color: black;
+    color: rgb(11, 173, 11);
+    border-radius: 5px;
+  }
+ .node{
+   color:rgb(11, 173, 11) ;
+   font-size: 30px;
+ }
+ #logo-abdurrahim{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
 element.style {
 }
 * {
@@ -321,12 +373,12 @@ h1 {
     font-weight: bold;
 }
 footer {
-    background-color: var(--bg-color);
-    padding: 3.25rem;
-    text-align: center;
-    margin: 19em 0px 0px;
-    position: relative;
-    bottom: 1%;
+  background-color: var(--bg-color);
+  padding: 6.25rem;
+  text-align: center;
+  margin: 3em 0px 0px;
+  position: relative;
+  bottom: 1%;
 }
   .footer-infos{
     display: flex;
@@ -411,6 +463,14 @@ footer {
   opacity: 1;
 }
 
+.project-link{
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  
+}
+
 @media screen and (max-width: 720px) {
   nav {
     padding: 1.5rem 1rem;
@@ -456,9 +516,10 @@ footer {
   }
 
   .more-about {
-    margin-top: 2rem;
-    padding: 1rem 3.5rem;
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
   }
+  
 
   .more-about h2 {
     text-align: center;
@@ -474,12 +535,28 @@ footer {
   .projects-container {
     flex-direction: column;
   }
+ 
 
   .project-container {
     width: 20.875rem;
   }
   .contact-form-container {
     max-width: 23.75rem;
+  }
+  .Skill-Area{
+    font-size: 10px !important;
+    margin-left: -31px !important;
+  margin-top: 8px !important;}
+  .PercentText{
+    font-size: 10px !important;
+    margin-top: 8px !important;
+  margin-top: 8px !important;}
+  .SkillBar{
+    height: 25px !important;
+  }
+  .percent-bar{
+    height:25px !important;
+    
   }
 }
 
@@ -513,6 +590,33 @@ footer {
   margin-top:160px;
 }
 
+#stack-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+}
+
+#stack-image {
+   width: 40px;
+   height: auto;
+}
+#stack-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#stackoverflow{
+  margin: 10px;
+  color: #ff7235;
+}
+
+.answer-score{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 @media screen and (max-width: 420px) {
   .hero img {
     height: 37.5rem;
@@ -530,7 +634,413 @@ footer {
   .contact-form-container {
     max-width: 17.75rem;
   }
+  .answer-score{
+    display: flex;
+    flex-direction: column;
+  margin: 1px;padding: -3px;}
 } 
 
+/* //skills */
+/* 
+// Responsive My Skills Box Widget
+// Made with ❤ by @Pawan_Mall
+// http://www.pawanmall.net 
+*/
 
- 
+
+
+#SkillBox {
+  font-size: 20px;
+  font-family: 'Indie Flower', cursive;
+  width: 75%;
+  height: auto;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -moz-border-radius: 20px; 
+}
+#SkillBox img {
+    width: 20%;
+    height: 10%;
+    margin: auto 35%;
+    padding: 10px;
+}
+.percent-bar{
+  height: 42px;
+}
+.SkillBar {
+   
+  width: 88%;
+  height: 43px;
+  position: relative;
+  background: rgba(17, 17, 17, .3);
+  margin: 17px auto;
+  border-radius: 27px;
+}
+#Skill-HTML {
+    animation: Animate-HTML 4s;
+    -webkit-animation: Animate-HTML 4s;
+    -moz-animation: Animate-HTML 4s;
+    -o-animation: Animate-HTML 4s;
+    position: absolute;
+    background-color: #ea8564;
+    width: 100%;
+    border-radius: 10px;
+}
+@keyframes Animate-HTML {
+    from {
+    width: 10px;
+}
+to {
+    width: 100%}
+}@-webkit-keyframes Animate-HTML {
+    from {
+    width: 10px;
+}
+to {
+    width: 100%}
+}@-moz-keyframes Animate-HTML {
+    from {
+    width: 10px;
+}
+to {
+    width: 100%}
+}@-o-keyframes Animate-HTML {
+    from {
+    width: 10px;
+}
+to {
+    width: 100%}
+}#Skill-CSS {
+  animation: Animate-CSS 5s;
+  -webkit-animation: Animate-CSS 5s;
+  -moz-animation: Animate-CSS 5s;
+  -o-animation: Animate-CSS 5s;
+  background-color: #55a69f;
+  position: absolute;
+  width: 70%;
+  border-radius: 10px;
+}
+@keyframes Animate-CSS {
+    from {
+    width: 10px;
+}
+to {
+    width: 70%}
+}@-webkit-keyframes Animate-CSS {
+    from {
+    width: 10px;
+}
+to {
+    width: 70%}
+}@-moz-keyframes Animate-CSS {
+    from {
+    width: 10px;
+}
+to {
+    width: 70%}
+}@-o-keyframes Animate-CSS {
+    from {
+    width: 10px;
+}
+to {
+    width: 70%}
+}#Skill-jQuery {
+    animation: Animate-jQuery 5s;
+    -webkit-animation: Animate-jQuery 5s;
+    -moz-animation: Animate-jQuery 5s;
+    -o-animation: Animate-jQuery 5s;
+  width: 40%;
+  border-radius: 10px;
+    position: absolute;
+    background-color: #99856d;
+}
+@keyframes Animate-jQuery {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-webkit-keyframes Animate-jQuery {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-moz-keyframes Animate-jQuery {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-o-keyframes Animate-jQuery {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}#Skill-JS {
+    animation: Animate-JS 4s;
+    -webkit-animation: Animate-JS 4s;
+    -moz-animation: Animate-JS 4s;
+    -o-animation: Animate-JS 4s;
+    width: 65%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #c44e45;
+}
+@keyframes Animate-JS {
+    from {
+    width: 10px;
+}
+to {
+    width: 65%}
+}@-webkit-keyframes Animate-JS {
+    from {
+    width: 10px;
+}
+to {
+    width: 65%}
+}@-moz-keyframes Animate-JS {
+    from {
+    width: 10px;
+}
+to {
+    width: 65%}
+}@-o-keyframes Animate-JS {
+    from {
+    width: 10px;
+}
+to {
+    width: 65%}
+}#Skill-XML {
+    animation: Animate-XML 4s;
+    -webkit-animation: Animate-XML 4s;
+    -moz-animation: Animate-XML 4s;
+    -o-animation: Animate-XML 4s;
+    width: 40%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #5aa669;
+}
+@keyframes Animate-XML {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-webkit-keyframes Animate-XML {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-moz-keyframes Animate-XML {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}@-o-keyframes Animate-XML {
+    from {
+    width: 10px;
+}
+to {
+    width: 40%}
+}#Skill-C {
+    animation: Animate-C 4s;
+    -webkit-animation: Animate-C 4s;
+    -moz-animation: Animate-C 4s;
+    -o-animation: Animate-C 4s;
+    width: 30%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #970cc1;
+}
+@keyframes Animate-C {
+    from {
+    width: 10px;
+}
+to {
+    width: 30%}
+}@-webkit-keyframes Animate-C {
+    from {
+    width: 10px;
+}
+to {
+    width: 30%}
+}@-moz-keyframes Animate-C {
+    from {
+    width: 10px;
+}
+to {
+    width: 30%}
+}@-o-keyframes Animate-C {
+    from {
+    width: 10px;
+}
+to {
+    width: 30%}
+}#Skill-JAVA {
+    animation: Animate-JAVA 4s;
+    -webkit-animation: Animate-JAVA 4s;
+    -moz-animation: Animate-JAVA 4s;
+    -o-animation: Animate-JAVA 4s;
+    width: 25%;
+  border-radius: 10px;
+    position: absolute;
+    background-color: #8e930c;
+}
+@keyframes Animate-JAVA {
+    from {
+    width: 10px;
+}
+to {
+    width: 25%}
+}@-webkit-keyframes Animate-JAVA {
+    from {
+    width: 10px;
+}
+to {
+    width: 25%}
+}@-moz-keyframes Animate-JAVA {
+    from {
+    width: 10px;
+}
+to {
+    width: 25%}
+}@-o-keyframes Animate-JAVA {
+    from {
+    width: 10px;
+}
+to {
+    width: 25%}
+}#Skill-PHP {
+    animation: Animate-PHP 4s;
+    -webkit-animation: Animate-PHP 4s;
+    -moz-animation: Animate-PHP 4s;
+    -o-animation: Animate-PHP 4s;
+    width: 50%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #5A69A6;
+}
+@keyframes Animate-PHP {
+    from {
+    width: 10px;
+}
+to {
+    width: 50%}
+}@-webkit-keyframes Animate-PHP {
+    from {
+    width: 10px;
+}
+to {
+    width: 50%}
+}@-moz-keyframes Animate-PHP {
+    from {
+    width: 10px;
+}
+to {
+    width: 50%}
+}@-o-keyframes Animate-PHP {
+    from {
+    width: 10px;
+}
+to {
+    width: 50%}
+}#Skill-SQL {
+    animation: Animate-SQL 4s;
+    -webkit-animation: Animate-SQL 4s;
+    -moz-animation: Animate-SQL 4s;
+    -o-animation: Animate-SQL 4s;
+    width: 80%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #23b1db;
+}
+@keyframes Animate-SQL {
+    from {
+    width: 10px;
+}
+to {
+    width: 80%}
+}@-webkit-keyframes Animate-SQL {
+    from {
+    width: 10px;
+}
+to {
+    width: 80%}
+}@-moz-keyframes Animate-SQL {
+    from {
+    width: 10px;
+}
+to {
+    width: 80%}
+}@-o-keyframes Animate-SQL {
+    from {
+    width: 10px;
+}
+to {
+    width: 80%}
+}#Skill-VBNET {
+    animation: Animate-VBNET 4s;
+    -webkit-animation: Animate-VBNET 4s;
+    -moz-animation: Animate-VBNET 4s;
+    -o-animation: Animate-VBNET 4s;
+    width: 35%;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #f8a51e;
+}
+@keyframes Animate-VBNET {
+    from {
+    width: 10px;
+}
+to {
+    width: 35%}
+}@-webkit-keyframes Animate-VBNET {
+    from {
+    width: 10px;
+}
+to {
+    width: 35%}
+}@-moz-keyframes Animate-VBNET {
+    from {
+    width: 10px;
+}
+to {
+    width: 35%}
+}@-o-keyframes Animate-VBNET {
+    from {
+    width: 10px;
+}
+to {
+    width: 35%}
+}.Skill-Area {
+    z-index: 1;
+    float: left;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-shadow: none;
+    color: #fff;
+    font-family: Lato-Regular, sans-serif;
+    font-size: 18px;
+}
+.PercentText {
+    z-index: 3;
+    position: relative;
+    padding-right: 15px;
+    margin-top: 15px;
+    float: right;
+    text-shadow: none;
+    color: #fff;
+    font-family: Lato-Regular, sans-serif;
+    font-size: 18px;
+}
+

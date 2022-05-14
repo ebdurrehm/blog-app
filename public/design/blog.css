@@ -122,7 +122,7 @@ flex-direction: column;
 
 #section-id{
 margin-bottom: 50px;
-}
+font-family: 'Indie Flower', cursive;}
 
 .card{box-shadow: 0 3px 10px #8b8eaf;background-color: #f3f0ff;display: flex;justify-content: center;flex-direction: column;align-items: center;width: 700px;height: 402px;padding: 20px;margin-bottom: 40px;}
 
