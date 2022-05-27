@@ -41,9 +41,7 @@
     <title>Abdurrahim | Backend (Node.js) developer</title>
 </head>
 <body>
-  <script async id="slcLiveChat"
-   src="https://widget.sonetel.com/SonetelWidget.min.js" 
-  data-account-id="207846582"></script>
+  
     
     <!-- Navbar -->
     <nav>
@@ -400,12 +398,54 @@
     </div>
   </footer>
   </div>
+
+  <!-- live chat -->
+
+<div id="body"> 
+  
+<div id="chat-circle" class="btn btn-raised">
+        
+		    <ion-icon  style="font-size: 30px;text-align:center;" name="chatbox-ellipses-outline"></ion-icon>
+	</div>
+  
+  <div class="chat-box">
+    <div class="chat-box-header">
+      Chat App
+      <span class="chat-box-toggle"><ion-icon style="font-size:30px;" name="close-circle-outline"></ion-icon></span>
+    </div>
+
+    <div class="chat-box-body">
+      <div class="chat-user">
+        <form id="chat-form">
+        <input type="text" id="username" placeholder="Your name">
+        <input type="email" id="chat-email" placeholder="your email">
+        <button type="submit" id="user-submit">ok</button>
+        </form>
+      </div>
+      <div class="chat-box-overlay">   
+      </div>
+      <div class="chat-logs">
+       
+      </div><!--chat-log -->
+    </div>
+   
+    <div class="chat-input">      
+      <form>
+        <input type="text" id="chat-input" placeholder="Send a message..."/>
+      <button type="submit" class="chat-submit" id="chat-submit"><ion-icon style="font-size: 20px;" name="chatbox-ellipses-outline"></ion-icon></button>
+      </form>      
+    </div>
+  </div>
+
+</div>
   
 
     <!-- Website scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
+
 
     <!-- Ion icons scripts -->
     <script

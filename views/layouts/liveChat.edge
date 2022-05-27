@@ -1,0 +1,250 @@
+<style>
+
+.button-container{
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+}
+
+.chat-info-balloon{
+  opacity: 0;
+  pointer-events: none;
+  transition: all .2s linear;
+  position: absolute;
+  bottom: -70px;
+  right: -70px;
+  z-index: -1;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+  min-width: 320px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  transform: translate(-70px,-70px);
+  img{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    border-radius: 100%;
+    border: 2px solid #F76C6C;
+    float: left;
+  }
+  p{
+    font-family: Georgia;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1em;
+    margin: 10px 0;
+  }
+  input{
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    font-family: Georgia;
+    font-size: 13px;
+    font-style: italic;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+  }
+  a{
+    display: inline-block;
+    text-align: center;
+    background: #F76C6C;
+    border-radius: 4px;
+    color: #fff;
+    font-family: Helvetica, Serif;
+    text-decoration: none;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    float: right;
+  }
+  .message-form{
+    overflow: hidden;
+    padding: 0 0 0 15px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+.customer-support{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+      
+
+  button{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 100%;
+    border: 2px solid #F76C6C;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: all .4s ease;
+    .fa-comments{
+      font-size: 40px;
+      color: #F76C6C;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      transition: all .4s ease;
+      opacity: 0;
+    }
+    .fa-times{
+      font-size: 40px;
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      transition: all .4s ease;
+      opacity: 0;
+    }
+    img{
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: all .4s ease;
+      opacity: 1;
+    }
+    &:hover{
+      .fa-comments{
+        opacity: 1;
+      }
+      img{
+        opacity: 0.2;
+      }
+    }
+  }
+  &.is-show{
+    button {
+      background: #F76C6C;
+      img{
+        display: none;
+      }
+      .fa-comments{
+        display: none;
+      }
+      .fa-times{
+        opacity: 1;
+      }
+    }
+    .chat-info-balloon{
+			opacity: 1;
+			pointer-events: all;
+      transform: translate(-150px, -70px) !important;
+      &.bottom-left{
+        transform: translate(-70px, 140px) !important;
+      }
+      &.top-right{
+        transform: translate(200px, -70px) !important;
+      }
+      &.bottom-right{
+        transform: translate(200px, 140px) !important;
+      }
+    }
+  }
+}
+</style>
+  <div class="customer-support" id="SupportChat" >
+    <div class="button-container" style>
+      <button>
+        <img src="https://res.cloudinary.com/idemo/image/upload/dpr_1.0,c_thumb,g_face,w_200,h_200/woman.jpg" />
+        <span class="fa fa-comments"></span>
+        <span class="fa fa-times"></span>
+      </button>
+      <div class="chat-info-balloon">
+        <img src="https://res.cloudinary.com/idemo/image/upload/dpr_1.0,c_thumb,g_face,w_200,h_200/woman.jpg" />
+        <div class="message-form">
+          <p>Chat with our customer support</p>
+          <input type="text" placeholder="Type your message here"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      dragElement = function(elmnt){
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+
+    // set the element's new position:
+    var top = elmnt.offsetTop - pos2;
+    var left = elmnt.offsetLeft - pos1;
+
+    // prevent user drag element out of window
+    if((left > 0 && left < (window.innerWidth - 65)) && (top > 0 && top < (window.innerHeight - 65))){
+      elmnt.style.top = (top) + "px";
+      elmnt.style.left = (left) + "px";
+    }
+
+    moveBmDetail(top, left);
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+moveBmDetail = function(top, left){
+  if(left > 170 && top < 170) {
+    $('.bmc-detail').removeClass('top-right').removeClass('bottom-right').addClass('bottom-left');
+  } else if(left < 170 && top > 170) {
+    $('.bmc-detail').removeClass('bottom-left').removeClass('bottom-right').addClass('top-right');
+  } else if(left < 170 && top < 170) {
+    $('.bmc-detail').removeClass('bottom-left').removeClass('top-right').addClass('bottom-right');
+  } else {
+    $('.bmc-detail').removeClass('bottom-left').removeClass('top-right').removeClass('bottom-right');
+  }
+}
+
+document.getElementById("SupportChat").ondragstart = function() { return false; };
+
+//Make the DIV element draggagle:
+dragElement(document.getElementById(("SupportChat")));
+
+$("button").click(function() {
+  $(".customer-support").toggleClass( "is-show" );
+});
+  </script>
+  

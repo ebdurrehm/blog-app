@@ -1,6 +1,9 @@
 
 
 //import EditorJS from "@editorjs/editorjs";
+
+
+
 const scrollUp = document.querySelector("#scroll-up");
 const burger = document.querySelector("#burger-menu");
 const ul = document.querySelector("nav ul");
@@ -150,3 +153,126 @@ async function setAnswers(){
 
 getStackOwerflowProfile();
 setAnswers();
+/*
+========================================================================================================================
+*/
+//live chat template logic
+var socket = io();
+
+
+
+  var INDEX = 0; 
+  var username;
+  var email;
+  $("#user-submit").click(function(e) {
+    e.preventDefault();
+    username = $("#username").val(); 
+    email = $("#chat-email").val(); 
+    
+  })
+
+  $("#chat-submit").click(function(e) {
+    e.preventDefault();
+    var msg = $("#chat-input").val();
+    var date = new Date();
+    var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    if(msg.trim() == ''){
+      return false;
+    }
+    const dataObj = {
+      "message":msg,
+      "username": username,
+      "email":email,
+      "time":time
+    }
+    generate_message_self(dataObj);
+    socket.emit('chat', JSON.stringify(dataObj));   
+  })
+  socket.on('chat-1',(serverData)=>{
+    console.log(serverData)
+    generate_message_user(serverData);
+    
+  })
+  
+  function generate_message_self(data) {
+  
+    INDEX++;
+    var myImage="https://cdn1.vectorstock.com/i/1000x1000/29/90/chat-bubble-with-avatar-vector-13582990.jpg";
+    var str=`
+    <div class="self-msg">
+    <p>${data.time}</p>
+      <div class="msg-body-1">
+      <p><b>${data.username}</b></p>
+      <p>${data.message}</p>
+      </div>
+      <div>
+    <img id="msg-img" src="${myImage}"/>
+      </div>
+    </div>
+    `
+
+    $(".chat-logs").append(str);
+    $("#cm-msg-"+INDEX).fadeIn(400);
+   
+     $("#chat-input").val(''); 
+      
+    $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000); 
+    const msgSendSound = new Audio('https://cdn.freesound.org/previews/315/315878_2075047-lq.ogg');
+    msgSendSound.play();
+      
+  }  
+
+  function generate_message_user(data) {
+    data = JSON.parse(data);
+    INDEX++;
+    var userImage="https://cdn1.iconfinder.com/data/icons/ui-color/512/Untitled-4-512.png";
+
+    var messageHTML=`
+    <div class="user-msg">
+    <div>
+    <img id="msg-img" src="${userImage}"/>
+      </div>
+    
+      <div class="msg-body-2">
+      <p><b>${data.username}</b></p>
+      <p>${data.message}</p>
+      </div>
+      <p>${data.time}</p>
+    </div>
+    `
+  
+            //create new message item on the chat log
+    $(".chat-logs").append(messageHTML);
+    $("#cm-msg-"+INDEX).hide().fadeIn(300);
+
+    //clean the input
+     $("#chat-input").val(''); 
+
+    //scroll to bottom
+    $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000); 
+     //play audio the sound when a new message receive
+     var msgSignal = new Audio('https://cdn.freesound.org/previews/537/537061_7117640-lq.ogg');
+     msgSignal.play();
+  } 
+  
+ 
+  //show chat box
+  $("#chat-circle").click(function() {    
+    $("#chat-circle").toggle('s');
+    $(".chat-box").toggle('s');
+  })
+  $("#user-submit").click(function() { 
+    $("#chat-form").toggle('s');   
+    $(".chat-logs").toggle('s');
+    $("#chat-input").toggle('s');
+    
+  })
+  
+  //close chat box
+  $(".chat-box-toggle").click(function() {
+    $("#chat-circle").toggle('scale');
+    $(".chat-box").toggle('scale');
+  })
+  
+
+
