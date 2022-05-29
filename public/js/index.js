@@ -168,7 +168,10 @@ var socket = io();
     e.preventDefault();
     username = $("#username").val(); 
     email = $("#chat-email").val(); 
-    
+    socket.emit('user_joined',{
+      username:username,
+      email:email
+    })
   })
 
   $("#chat-submit").click(function(e) {
@@ -186,9 +189,9 @@ var socket = io();
       "time":time
     }
     generate_message_self(dataObj);
-    socket.emit('chat', JSON.stringify(dataObj));   
+    socket.emit('chat', dataObj);   
   })
-  socket.on('chat-1',(serverData)=>{
+  socket.on('admin_messages',(serverData)=>{
     console.log(serverData)
     generate_message_user(serverData);
     
@@ -223,7 +226,7 @@ var socket = io();
   }  
 
   function generate_message_user(data) {
-    data = JSON.parse(data);
+    
     INDEX++;
     var userImage="https://cdn1.iconfinder.com/data/icons/ui-color/512/Untitled-4-512.png";
 
