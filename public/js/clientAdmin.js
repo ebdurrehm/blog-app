@@ -29,7 +29,9 @@ adminClient.init = function(){
           <span class="message-data-time">${data.time}</span>
           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
       </div>
-      <div class="message other-message float-right"> ${data.message}</div>
+      <div class="message other-message float-right"> 
+      ${data.isImageMsg? `<img src="${data.image}" 
+      style="width:100%;height:auto;">`:data.message}</div>
   
       `
      const element = document.createElement('li');
@@ -51,7 +53,9 @@ adminClient.showMessages = function(id){
           <span class="message-data-time">${msg.data.time}</span>
           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
       </div>
-      <div class="message other-message float-right"> ${msg.data.message}</div>
+      <div class="message other-message float-right"> 
+      ${msg.data.isImageMsg? `<img src="${msg.data.image}" 
+      style="width:100%;height:auto;">`:msg.data.message}</div>
   </li>
       `))}`
     });

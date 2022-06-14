@@ -160,7 +160,6 @@ setAnswers();
 var socket = io();
 
 
-
   var INDEX = 0; 
   var username;
   var email;
@@ -172,6 +171,26 @@ var socket = io();
       username:username,
       email:email
     })
+
+  })
+
+  const imgUploader = document.getElementById('file-uploader');
+  imgUploader.addEventListener('change',(e)=>{
+    const reader = new FileReader();
+    reader.onload = (event)=>{
+      var date = new Date();
+      var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+      const dataObj = {
+        "image":event.target.result,
+        "username": username,
+        "email":email,
+        "time":time,
+        "isImageMsg":true
+      }
+      generateImage(dataObj);
+      socket.emit('chat',dataObj);
+    }
+    reader.readAsDataURL(imgUploader.files[0]);
   })
 
   $("#chat-submit").click(function(e) {
@@ -186,7 +205,8 @@ var socket = io();
       "message":msg,
       "username": username,
       "email":email,
-      "time":time
+      "time":time,
+      "isImageMsg":false
     }
     generate_message_self(dataObj);
     socket.emit('chat', dataObj);   
@@ -257,6 +277,32 @@ var socket = io();
      var msgSignal = new Audio('https://cdn.freesound.org/previews/537/537061_7117640-lq.ogg');
      msgSignal.play();
   } 
+
+  function generateImage(data){
+    var myImage="https://cdn1.vectorstock.com/i/1000x1000/29/90/chat-bubble-with-avatar-vector-13582990.jpg";
+    var str=`
+    <div class="self-msg">
+    <p>${data.time}</p>
+      <div class="msg-body-1">
+      <p><b>${data.username}</b></p>
+      <img src="${data.image}" 
+       id="message-image" 
+       style="width:100%; height:auto;">
+      </div>
+      <div>
+    <img id="msg-img" src="${myImage}"/>
+      </div>
+    </div>
+    `
+    $(".chat-logs").append(str);
+    $("#cm-msg-"+INDEX).fadeIn(400);
+   
+     $("#chat-input").val(''); 
+      
+    $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000); 
+    const msgSendSound = new Audio('https://cdn.freesound.org/previews/315/315878_2075047-lq.ogg');
+    msgSendSound.play();
+  }
   
  
   //show chat box
