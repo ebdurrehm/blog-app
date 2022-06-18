@@ -50,12 +50,12 @@ adminClient.showMessages = function(id){
       msgHistory.innerHTML = `${res.map(msg=>(`
       <li class="clearfix">
       <div class="message-data text-right">
-          <span class="message-data-time">${msg.data.time}</span>
+          <span class="message-data-time">${msg.time}</span>
           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
       </div>
       <div class="message other-message float-right"> 
-      ${msg.data.isImageMsg? `<img src="${msg.data.image}" 
-      style="width:100%;height:auto;">`:msg.data.message}</div>
+      ${msg.isImageMsg? `<img src="${msg.image}" 
+      style="width:100%;height:auto;">`:msg.message}</div>
   </li>
       `))}`
     });

@@ -7,6 +7,9 @@
  * The above logic hepls create unique room for  the  every admin<==>user pairs
  * 
  */
+ const CHATS = require('./../database/models/chat');
+ const USERS = require('./../database/models/chatUsers');
+
  let users = [];
  let roomMessages = [];
  const chat = {};
@@ -24,13 +27,15 @@
          await socket.join('@' + id);
          console.log("socket client " + socket.id + " in the room ")
          console.log(socket.rooms);
-         users.push({
-             id: socket.id,
-             username: data.username,
-             email: data.email
+         const user = new USERS({
+            id: socket.id,
+            username: data.username,
+            email: data.email
          })
-         console.log(users);
-         socket.broadcast.emit('users', users);
+         await user.save();
+         const currentUsers = await USERS.find({});
+         console.log(currentUsers);
+         socket.broadcast.emit('users', currentUsers);
      })
  
      socket.on('message', async (id, callback) => {
@@ -48,19 +53,22 @@
          console.log("socket admin " + socket.id + " in the room ")
          console.log(socket.rooms)
          //find user's previous chat history
-         const messages = roomMessages.filter(message => message.id === id);
-         console.log(messages)
+         const dbMessages = await CHATS.find({"id":id})
+         console.log(dbMessages)
+         
          // return these messaages to client
-         callback(messages);
+         callback(dbMessages);
      })
  
  
      socket.on('chat', (data) => {
          console.log(`message id ${socket.id}`)
-         roomMessages.push({
-             id: socket.id,
-             data,
+        
+         const chat = new CHATS({
+            id:socket.id,
+            ...data
          })
+         chat.save();
          socket.broadcast.to('@' + socket.id).emit('message-1', data);
      })
 
