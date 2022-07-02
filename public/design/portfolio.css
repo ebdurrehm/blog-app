@@ -470,7 +470,15 @@ footer {
   color: white;
   
 }
-
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  margin: 250px;
+  margin-top: 67px;
+ }
 @media screen and (max-width: 720px) {
   nav {
     padding: 1.5rem 1rem;
@@ -558,17 +566,20 @@ footer {
     height:25px !important;
     
   }
+  body{
+    overflow-x: hidden;
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 
-.form{
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: row;
- gap: 40px;
- margin: 250px;
- margin-top: 67px;
-}
+
 
 
 .social-icon{
