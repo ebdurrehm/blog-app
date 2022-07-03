@@ -153,6 +153,7 @@
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
                     <input type="text" class="form-control" placeholder="Search...">
+                    <button id="refresh" onclick="adminClient.refreshUsersList()">Refresh</button>
                 </div>
                 <ul class="list-unstyled chat-list mt-2 mb-0" id="rooms">
                     
@@ -245,23 +246,7 @@
       <p id="fail-msg"></p>
     </div>
   </div>
-  <!-- live chat -->
-  <div class="customer-support" id="SupportChat" >
-    <div class="button-container" style>
-      <button>
-        <img src="https://res.cloudinary.com/idemo/image/upload/dpr_1.0,c_thumb,g_face,w_200,h_200/woman.jpg" />
-        <span class="fa fa-comments"></span>
-        <span class="fa fa-times"></span>
-      </button>
-      <div class="chat-info-balloon">
-        <img src="https://res.cloudinary.com/idemo/image/upload/dpr_1.0,c_thumb,g_face,w_200,h_200/woman.jpg" />
-        <div class="message-form">
-          <p>Chat with our customer support</p>
-          <input type="text" placeholder="Type your message here"/>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
  <!-- Website scripts -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

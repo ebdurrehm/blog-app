@@ -10,8 +10,7 @@
  const CHATS = require('./../database/models/chat');
  const USERS = require('./../database/models/chatUsers');
 
- let users = [];
- let roomMessages = [];
+
  const chat = {};
  chat.init = function(io){
  io.on('connection', (socket) => {
@@ -36,6 +35,11 @@
          const currentUsers = await USERS.find({});
          console.log(currentUsers);
          socket.broadcast.emit('users', currentUsers);
+     })
+
+     socket.on('users_list',async (data,callback)=>{
+        const usersList = await USERS.find({});
+        callback(usersList)
      })
  
      socket.on('message', async (id, callback) => {

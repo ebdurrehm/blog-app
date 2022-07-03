@@ -4,21 +4,23 @@
 //live chat template logic
 var socket = io();
 const adminClient = {};
+adminClient.showUsers = function(rooms, data){
+  rooms.innerHTML = `${data.map(user=>`
+  <li class="clearfix" data-id="${user.id}" onclick="adminClient.showMessages(this.dataset.id)">
+  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+  <div class="about">
+      <div class="name">${user.username}</div>
+      <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
+  </div>
+</li>`)}`
+}
 adminClient.init = function(){
-
 
   socket.on('users',(users)=>{
     
     console.log(users);
     const rooms = document.getElementById('rooms');
-    rooms.innerHTML = `${users.map(user=>`
-    <li class="clearfix" data-id="${user.id}" onclick="adminClient.showMessages(this.dataset.id)">
-    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-    <div class="about">
-        <div class="name">${user.username}</div>
-        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
-    </div>
-</li>`)}`
+    this.showUsers(rooms,users);
   })
 
   socket.on('message-1',(data)=>{
@@ -41,7 +43,12 @@ adminClient.init = function(){
   })
 }
 
-  
+adminClient.refreshUsersList = function(){
+  socket.emit('users_list','hello',(users)=>{
+    const rooms = document.getElementById('rooms');
+    this.showUsers(rooms,users);
+  });
+}
 
 adminClient.showMessages = function(id){
     console.log(id);
@@ -85,5 +92,7 @@ adminClient.showMessages = function(id){
     socket.emit('admin_message',adminMessage);
 
   }
+
+ 
 
 adminClient.init();
