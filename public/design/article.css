@@ -179,6 +179,31 @@
    padding: 5px;
     
   }
+#nav-links{
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  
+top: 0;
+left: 0;
+z-index: 1;
+display: flex;
+align-items: center;
+padding: 1.5rem 3.5rem;
+background-color:rgb(255, 255, 255);
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+li a{
+  text-decoration: none;
+}
+li a:hover{
+  text-decoration: underline orange 3px;
+
+}
+
   
   .comments-details button.btn.dropdown-toggle,
 .comments-details .total-comments {
@@ -313,8 +338,41 @@
     margin-top: 15px;
 }
 
+.social-link{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 /*======Responsive CSS=======*/
 @media (max-width: 767px){
+.article-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+.container {
+  overflow-x:hidden;
+}
+.share{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.share-btn a{
+  margin-top: 10px;
+}
+.author-image{
+  width: 84px;
+  height: 64px;
+}
+.icon{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
 .comments .commenter-name {
     font-size: 13px;
     top: -5px;

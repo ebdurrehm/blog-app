@@ -43,7 +43,13 @@
     nonce="eUA3eiOb"></script>
   </script>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-
+  <nav>
+    <ul id="nav-links">
+      <li><a href="/"><b>&#128309 HOME</b></a></li>
+      <li><a href="/blog"><b>&#128466 BLOG</b></a></li>
+      <li><a href="/blog/user/login"><b>&#128272 LOGIN</b></a></li>
+    </ul>
+  </nav>
   <div class="container">
     <div class="article-container">
       <h4 style="margin-bottom: 5px; color: blue;">{{posts.tags[0].toUpperCase()}}</h4>
@@ -99,6 +105,7 @@
           <h4>{{posts.author}}</h4>
           <p>Evergreen Content Editor, 15+ Years of Publishing and Content Marketing Experience</p>
           <div class="icon">
+            <div class="social-link">
             <div class="icon-wrapper">
               <i class="fab fa-facebook-f icon-style"></i>
             </div>
@@ -107,6 +114,7 @@
             </div>
             <div class="icon-wrapper">
               <i class="fab fa-linkedin-in icon-style"></i>
+            </div>
             </div>
             <div id="date"><span class="time"> <span class="tm">
                   <i class="fa fa-calendar-o icon" aria-hidden="true">
