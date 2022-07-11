@@ -30,7 +30,7 @@ passport.deserializeUser((id,done)=>{
 passport.use(new githubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_SECRETS,
-    callbackURL: "http://localhost:80/auth/github/callback"
+    callbackURL: 'http://'+process.env.MY_HOST+':'+process.env.MY_PORT+'/auth/github/callback'
 },function(accessToken,refreshToken,profile,callback){
    //search user in db and if this user was not created
    // insert the new user into db
@@ -61,7 +61,7 @@ passport.use(new githubStrategy({
 passport.use(new googleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret:process.env.GOOGLE_SECRET,
-    callbackURL:'http://localhost:80/auth/google/callback',
+    callbackURL:'http://'+process.env.MY_HOST+':'+process.env.MY_PORT+'/auth/google/callback',
     passReqToCallback   : true
 },function(request,accessToken, refreshToken, profile, callback){
     console.log(profile)

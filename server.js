@@ -1,4 +1,5 @@
 const app = require('./app');
+require('dotenv').config({path:'secret.env'});
 const { createServer } = require('http');
 const httpServer = createServer(app);
 const { Server } = require('socket.io');
@@ -8,9 +9,9 @@ const io = new Server(httpServer);
 chat.init(io);
 
 //server configuration
+console.log(process.env.YOUR_HOST)
 const server_port = process.env.YOUR_PORT || process.env.PORT || 80;
-const server_host = process.env.YOUR_HOST || '0.0.0.0';
-httpServer.listen(server_port, server_host, function () {
+httpServer.listen(server_port, function () {
     console.log('Listening on port %d', server_port);
 });
 
