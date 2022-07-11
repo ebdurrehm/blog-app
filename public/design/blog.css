@@ -43,7 +43,6 @@ font-family: var(--font-family);
 }
 
 nav {
-position: sticky;
 top: 0;
 left: 0;
 z-index: 1;
@@ -333,6 +332,10 @@ color: teal;
         padding: 2px;
         border-radius: 5px;
         font-size: 11px;
+        margin-top: -15px;
+      }
+      #tag{
+        margin-top: -10px;
       }
       #commentCount{
         font-size: 10px

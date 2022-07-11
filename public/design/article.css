@@ -343,6 +343,12 @@ li a:hover{
   flex-direction: row;
   gap: 5px;
 }
+
+#footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /*======Responsive CSS=======*/
 @media (max-width: 767px){
 .article-container{
@@ -351,8 +357,24 @@ li a:hover{
   width: 100%;
   padding: 5px;
 }
+textarea{
+  columns: 80;
+  width: 70%;
+}
+.comments-details{
+  padding: 2px 2px;
+  width: 95%;
+}
 .container {
   overflow-x:hidden;
+}
+.comments .comment-box{
+  width: 90%;
+  height: 90%;
+}
+#content{
+  width: 95%;
+  font-size: 15px;
 }
 .share{
   display: flex;
@@ -363,8 +385,7 @@ li a:hover{
   margin-top: 10px;
 }
 .author-image{
-  width: 84px;
-  height: 64px;
+  display: none;
 }
 .icon{
   display: flex;
